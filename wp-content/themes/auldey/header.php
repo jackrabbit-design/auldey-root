@@ -47,7 +47,7 @@
             </div>
             <div id="nav-icon"><span></span></div>
             <nav id="nav">
-                <ul>
+                <!-- <ul>
                     <li class="menu-item-has-children"><a href="#"><span>Brands</span></a>
                         <ul>
                             <li><a href="#">nav item 1</a></li>
@@ -61,7 +61,8 @@
                     <li><a href="#"><span>Our Story</span></a></li>
                     <li><a href="#"><span>Contact</span></a></li>
                     <li class="search"><a href="#"><span><img src="ui/images/ico-search.png" alt=""/></span></a></li>
-                </ul>
+                </ul> -->
+                <?php wp_nav_menu( array('theme_location' => 'main-menu', 'container' => '', 'menu_class' => '', 'menu_id' => '', 'depth' => 2, 'walker' => new jrd_walker() )); ?>
             </nav>
         </div>
     </header>
