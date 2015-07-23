@@ -31,7 +31,7 @@
     -->
     <meta name="MSSmartTagsPreventParsing" content="true" /><!--[if lte IE 9]><meta http-equiv="X-UA-Compatible" content="IE=Edge"/><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Title</title>
+    <title><?php wp_title() ?></title>
     <link type="text/plain" rel="author" href="authors.txt" />
     <link type="image/x-icon" rel="shortcut icon" href="favicon.ico" />
     <?php wp_head(); ?>
@@ -42,7 +42,7 @@
     <header id="header">
         <div class="header-wrap">
             <div class="logo-container">
-                <a href="#" class="logo"><img src="ui/images/logo.png" alt="Auldey Toys" /></a>
+                <a href="<?php bloginfo('url') ?>" class="logo"><img src="ui/images/logo.png" alt="<?php bloginfo('name') ?>" /></a>
                 <span class="red"></span>
             </div>
             <div id="nav-icon"><span></span></div>
