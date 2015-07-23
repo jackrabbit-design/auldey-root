@@ -62,11 +62,11 @@ function hide_meta_boxes() {
      remove_meta_box('postcustom','post','normal'); // custom fields post
      remove_meta_box('postcustom','page','normal'); // custom fields page
 
-     //remove_meta_box('commentstatusdiv','post','normal'); // discussion post
+     remove_meta_box('commentstatusdiv','post','normal'); // discussion post
      remove_meta_box('commentstatusdiv','page','normal'); // discussion page
 
-     //remove_meta_box('commentsdiv','post','normal'); // comments post
-     //remove_meta_box('commentsdiv','page','normal'); // comments page
+     remove_meta_box('commentsdiv','post','normal'); // comments post
+     remove_meta_box('commentsdiv','page','normal'); // comments page
 
      //remove_meta_box('authordiv','post','normal'); // author post
      remove_meta_box('authordiv','page','normal'); // author page
