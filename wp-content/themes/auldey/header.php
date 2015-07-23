@@ -42,7 +42,7 @@
     <header id="header">
         <div class="header-wrap">
             <div class="logo-container">
-                <a href="<?php bloginfo('url') ?>" class="logo"><img src="ui/images/logo.png" alt="<?php bloginfo('name') ?>" /></a>
+                <a href="<?php bloginfo('url') ?>" class="logo"><img src="<?php bloginfo('url') ?>ui/images/logo.png" alt="<?php bloginfo('name') ?>" /></a>
                 <span class="red"></span>
             </div>
             <div id="nav-icon"><span></span></div>
