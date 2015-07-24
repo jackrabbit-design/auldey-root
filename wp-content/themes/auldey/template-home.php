@@ -1,6 +1,5 @@
 <?php /* Template Name: Home */ get_header(); the_post(); ?>
 
-
 <div id="banner">
     <div class="slide" style="background-image:url(ui/images/banner.jpg)"></div>
     <div class="slide" style="background-image:url(ui/images/banner.jpg)"></div>
