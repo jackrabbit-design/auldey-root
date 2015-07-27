@@ -539,7 +539,7 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 
 .content-main ol li:before { content: counter(li) ". "; counter-increment: li; position: absolute; left: 0; }
 
-#title { background: #EDEDED url(../images/share-top.png) no-repeat center top; padding: 40px 0 260px; text-align: center; position: relative; }
+#title { background: #EDEDED url(../images/share-top.png) repeat-x center top; padding: 40px 0 260px; text-align: center; position: relative; }
 
 #title.noimg { padding-bottom: 40px; }
 

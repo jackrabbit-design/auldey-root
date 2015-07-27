@@ -470,16 +470,15 @@ function jrd_paginate() {
 /* ========================================================================= */
 /* !SHORTCUT CODES */
 /* ========================================================================= */
-/*
-function morelink($atts, $content = null) {
+
+function buttonSC($atts, $content = null) {
     extract(shortcode_atts(array(
-        "link" => '',
-        "target" => ''
+        "link" => ''
     ), $atts));
-    return '<a href="'.$link.'" class="button btn-read-more" target="'.$target.'">'.$content.'</a>';
+    return '<a href="'.$link.'" class="btn"><span>'.$content.'</span></a>';
 }
-add_shortcode('button', 'morelink');
-*/
+add_shortcode('btn', 'buttonSC');
+
 
 
 
