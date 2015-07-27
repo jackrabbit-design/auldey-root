@@ -81,24 +81,25 @@
 
     <?php if(have_rows('toys_slider')){ ?>
         <div id="toys-slider">
-            <?php while(have_rows('toys_slider')){ the_row(); ?>
+            <?php while(have_rows('toys_slider')){ the_row();
+                $img = get_sub_field('toy_image');
+                $img = $img['sizes'];
+                $feat = $img['toy-slide'];
+                $mar = $img['toy-slide-width'] / 2;
+                $text = get_sub_field('toy_description');
+                $toyLink = get_sub_field('toy_link');
+                $brandLink = get_sub_field('brand_link');
+                ?>
                 <div class="slide">
-                    <img src="//placekitten.com/960/568" alt="" style="margin-left:-480px;" />
+                    <img src="<?php echo $feat ?>" alt="" style="margin-left:-<?php echo $mar ?>px;" />
                     <div class="popup">
                         <div class="expand"><span>+</span></div>
                         <div class="more">
                             <div class="more-holder clearfix">
-                                <h5>Superwings</h5>
-                                <h4>Donnie</h4>
-                                <p>Donnie is the lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus velit, a consectetur massa. Post quam filet erat filium est.</p>
-                                <ul>
-                                    <li>Ages 6+</li>
-                                    <li>Fully transforms for flight action!</li>
-                                    <li>Lorem ipsum dolor sit</li>
-                                </ul>
+                                <?php echo $text ?>
                                 <div class="buttons">
-                                    <a href="#" class="btn"><span>View Toy</span></a>
-                                    <a href="#" class="right">View Superwings</a>
+                                    <a href="<?php echo get_permalink($toyLink->ID); ?>" class="btn"><span>View Toy</span></a>
+                                    <a href="<?php echo $brandLink ?>" class="right">View Superwings</a>
                                 </div>
                             </div>
                         </div>
