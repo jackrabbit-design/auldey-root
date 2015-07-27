@@ -39,6 +39,7 @@ add_image_size( 'home-banner', 1620, 586, true);
 add_image_size( 'brand-grid-logo', 250, 110, false);
 add_image_size( 'brand-grid-image', 245, 227, true);
 add_image_size( 'toys-slider-image', 960, 568, false);
+add_image_size( 'home-video', 805, 477, true);
 
 /* Declare Nav Menu Areas */
 if ( function_exists( 'register_nav_menus' ) ) {

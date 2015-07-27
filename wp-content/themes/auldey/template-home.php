@@ -34,36 +34,38 @@
     <h3><?php the_field('videos_small_header'); ?></h3>
     <h2><?php the_field('videos_large_header'); ?></h2>
 
-    <a href="#" class="video large">
-        <img src="ui/images/vid-lg.jpg" alt="" />
-        <span class="light"></span>
-        <span class="dark"></span>
-        <div class="text">
-            <h4>Skyrover</h4>
-            <h3>Take to the skies with the PHANTOM!</h3>
-        </div>
-        <span class="play"></span>
-    </a>
+    <?php if($videos = get_field('videos')){
+    } ?>
+    <?php for($i = 0; $i < 3; $i++){
+        $v = $videos[$i]->ID;
+        $cats = get_the_terms($v, 'video-brand');
+        $catOut = '';
+        for($c = 0; $c < count($cats); $c++){
+            $catOut .= $cats[$c]->name;
+            if($c + 1 < count($cats)) $catOut .= ', ';
+        }
+        $vidID = get_field('vimeo_id',$v);
+        if(has_post_thumbnail($v)){
+            $thb = wp_get_attachment_image_src(get_post_thumbnail_id($v), 'home-video'); $thb = $thb[0];
+        }else{
+            $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$vidID.php"));
+            $thb = $hash[0]['thumbnail_large'];
+        }
+        ?>
+        <a href="http://vimeo.com/<?php echo $vidID ?>" class="lb video <?php echo ($i == 0 ? 'large' : 'small'); ?>">
+            <img src="<?php echo $thb; ?>" alt="" />
+            <span class="light"></span>
+            <span class="dark"></span>
+            <div class="text">
+                <h4><?php echo $catOut ?></h4>
+                <h3><?php echo get_the_title($v) ?></h3>
+            </div>
+            <?php if($i == 0){ ?>
+                <span class="play"></span>
+            <?php } ?>
+        </a>
 
-    <a href="#" class="video small">
-        <img src="http://placekitten.com/267/166" alt="" />
-        <span class="light"></span>
-        <span class="dark"></span>
-        <div class="text">
-            <h4>RACETIN</h4>
-            <h3>Incredible stunts with Race-Tin RC Racers</h3>
-        </div>
-    </a>
-
-    <a href="#" class="video small">
-        <img src="http://placekitten.com/267/166" alt="" />
-        <span class="light"></span>
-        <span class="dark"></span>
-        <div class="text">
-            <h4>SUPERWINGS</h4>
-            <h3>Watch the latest episode</h3>
-        </div>
-    </a>
+    <?php } ?>
 
     <div class="center clear btn-holder">
         <a class="btn" href="<?php the_field('button_link'); ?>"><span><?php the_field('button_label'); ?></span></a>

@@ -79,6 +79,13 @@ function _mobileNav(){
     });
 }
 
+function _lbVideo(){
+    $('a.lb.video').magnificPopup({
+        type: 'iframe',
+        preloader: false
+    });
+}
+
 jQuery(function(){
 
     _brandGrid();
@@ -88,5 +95,6 @@ jQuery(function(){
     _faq();
     _gallery();
     _mobileNav();
+    _lbVideo();
 
 });
