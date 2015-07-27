@@ -3000,7 +3000,7 @@ input[type=submit], button {
   z-index: 1042;
   overflow: hidden;
   position: fixed;
-  background: #0b0b0b;
+  background: #001A2F;
   opacity: 0.8;
   filter: alpha(opacity=80);
 }
@@ -3453,6 +3453,32 @@ img.mfp-img {
   top: 0;
   right: 0;
   padding-top: 0;
+}
+
+/* JRD MFP OVERRIDES */
+.mfp-bg {
+  background: #001A2F;
+}
+
+.mfp-image-holder .mfp-close, .mfp-iframe-holder .mfp-close {
+  width: 48px;
+  height: 48px;
+  background: #EC1C23;
+  font: 500 50px/48px Nexa;
+  color: #fff;
+  opacity: 1;
+  text-align: center;
+  padding: 0;
+  top: -24px;
+  right: 24px;
+}
+
+.mfp-image-holder .mfp-close:hover, .mfp-iframe-holder .mfp-close:hover {
+  background: #BD2027;
+}
+
+.mfp-iframe-scaler iframe {
+  box-shadow: 0 2px 49px rgba(0, 0, 0, 0.5);
 }
 
 /* ========================================================================= */

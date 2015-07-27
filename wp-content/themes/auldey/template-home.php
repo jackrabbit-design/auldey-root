@@ -74,56 +74,40 @@
 </div>
 
 <div id="innovative">
-    <h2>INNOVATIVE TOYS THAT BRING JOY TO THE WORLD</h2>
+    <h2><?php the_field('blue_section_text'); ?></h2>
 </div>
 
 <div id="toys">
-    <div id="toys-slider">
-        <div class="slide">
-            <img src="//placekitten.com/960/568" alt="" style="margin-left:-480px;" />
-            <div class="popup">
-                <div class="expand"><span>+</span></div>
-                <div class="more">
-                    <div class="more-holder clearfix">
-                        <h5>Superwings</h5>
-                        <h4>Donnie</h4>
-                        <p>Donnie is the lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus velit, a consectetur massa. Post quam filet erat filium est.</p>
-                        <ul>
-                            <li>Ages 6+</li>
-                            <li>Fully transforms for flight action!</li>
-                            <li>Lorem ipsum dolor sit</li>
-                        </ul>
-                        <div class="buttons">
-                            <a href="#" class="btn"><span>View Toy</span></a>
-                            <a href="#" class="right">View Superwings</a>
+
+    <?php if(have_rows('toys_slider')){ ?>
+        <div id="toys-slider">
+            <?php while(have_rows('toys_slider')){ the_row(); ?>
+                <div class="slide">
+                    <img src="//placekitten.com/960/568" alt="" style="margin-left:-480px;" />
+                    <div class="popup">
+                        <div class="expand"><span>+</span></div>
+                        <div class="more">
+                            <div class="more-holder clearfix">
+                                <h5>Superwings</h5>
+                                <h4>Donnie</h4>
+                                <p>Donnie is the lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus velit, a consectetur massa. Post quam filet erat filium est.</p>
+                                <ul>
+                                    <li>Ages 6+</li>
+                                    <li>Fully transforms for flight action!</li>
+                                    <li>Lorem ipsum dolor sit</li>
+                                </ul>
+                                <div class="buttons">
+                                    <a href="#" class="btn"><span>View Toy</span></a>
+                                    <a href="#" class="right">View Superwings</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
-        <div class="slide">
-            <img src="//placekitten.com/960/568" alt="" style="margin-left:-480px;" />
-            <div class="popup">
-                <div class="expand"><span>+</span></div>
-                <div class="more">
-                    <div class="more-holder clearfix">
-                        <h5>Superwings</h5>
-                        <h4>Donnie</h4>
-                        <p>Donnie is the lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus velit, a consectetur massa. Post quam filet erat filium est.</p>
-                        <ul>
-                            <li>Ages 6+</li>
-                            <li>Fully transforms for flight action!</li>
-                            <li>Lorem ipsum dolor sit</li>
-                        </ul>
-                        <div class="buttons">
-                            <a href="#" class="btn"><span>View Toy</span></a>
-                            <a href="#" class="right">View Superwings</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php } ?>
+
     <div class="center">
         <span class="btn more-toys"><span>More Toys</span></a>
     </div>
