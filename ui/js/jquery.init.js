@@ -86,7 +86,31 @@ function _lbVideo(){
     });
 }
 
+function _linkCheck(){
+    $(document).on('click', 'a.external', function(e){
+        e.preventDefault;
+        var url = e.target.href;
+        $('.external-lb a.btn').attr('href',url);
+        $.magnificPopup.open({
+            mainClass: 'mfp-fade',
+            items: {
+                src: '.external-lb',
+                type: 'inline'
+            }
+        }, 0);
+        return false;
+    });
+    $('.external-lb a').on('click',function(){
+        $.magnificPopup.close();
+        if($(this).hasClass('right')){
+            return false;
+        }
+    });
+}
+
 jQuery(function(){
+
+    console.log(window.location.hostname);
 
     _brandGrid();
     _banner();
@@ -96,5 +120,6 @@ jQuery(function(){
     _gallery();
     _mobileNav();
     _lbVideo();
+    _linkCheck();
 
 });

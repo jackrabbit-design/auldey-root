@@ -5,12 +5,22 @@
         </div>
         <div class="right">
             <?php if($ig = get_field('instagram_username','options')){ ?>
-                <a href="http://www.instagram.com/<?php echo $ig ?>" target="_blank" class="social-instagram"></a>
+                <a href="http://www.instagram.com/<?php echo $ig ?>" target="_blank" class="social-instagram external"></a>
             <?php } if($fb = get_field('facebook_url','options')){ ?>
-                <a href="<?php echo $fb ?>" target="_blank" class="social-facebook"></a>
+                <a href="<?php echo $fb ?>" target="_blank" class="social-facebook external"></a>
             <?php } ?>
         </div>
     </footer>
+
+    <div style="display:none;">
+        <div class="external-lb">
+            <h2>Prepare for Takeoff!</h2>
+            <h3>By clicking "continue" you'll be flying off the Auldey web site and landing on a social site. Remember, they have different terms and privacy policies.</h3>
+            <p>KIDS, get your parent's permission before visiting other sites and NEVER share any personal info about yourself – including your full name, address and phone number and let your parent or guardian handle any transaction.</p>
+            <a href="#" target="_blank" class="btn"><span>Continue</span></a>
+            <a href="#" class="right">Back to Auldey</a>
+        </div>
+    </div>
 
     <?php wp_footer(); ?>
 </body>
