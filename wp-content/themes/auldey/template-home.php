@@ -31,8 +31,8 @@
 <?php } ?>
 
 <div id="videos">
-    <h3>See 'Em in Action</h3>
-    <h2>Toy Videos</h2>
+    <h3><?php the_field('videos_small_header'); ?></h3>
+    <h2><?php the_field('videos_large_header'); ?></h2>
 
     <a href="#" class="video large">
         <img src="ui/images/vid-lg.jpg" alt="" />
@@ -66,7 +66,7 @@
     </a>
 
     <div class="center clear btn-holder">
-        <a class="btn" href="#"><span>More Videos</span></a>
+        <a class="btn" href="<?php the_field('button_link'); ?>"><span><?php the_field('button_label'); ?></span></a>
     </div>
 
 </div>
@@ -78,7 +78,7 @@
 <div id="toys">
     <div id="toys-slider">
         <div class="slide">
-            <img src="ui/images/sil-superwings.png" alt="" style="margin-left:-226px;" />
+            <img src="//placekitten.com/960/568" alt="" style="margin-left:-480px;" />
             <div class="popup">
                 <div class="expand"><span>+</span></div>
                 <div class="more">
@@ -100,9 +100,25 @@
             </div>
         </div>
         <div class="slide">
-            <img src="ui/images/sil-superwings.png" alt="" style="margin-left:-226px;" />
+            <img src="//placekitten.com/960/568" alt="" style="margin-left:-480px;" />
             <div class="popup">
                 <div class="expand"><span>+</span></div>
+                <div class="more">
+                    <div class="more-holder clearfix">
+                        <h5>Superwings</h5>
+                        <h4>Donnie</h4>
+                        <p>Donnie is the lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus velit, a consectetur massa. Post quam filet erat filium est.</p>
+                        <ul>
+                            <li>Ages 6+</li>
+                            <li>Fully transforms for flight action!</li>
+                            <li>Lorem ipsum dolor sit</li>
+                        </ul>
+                        <div class="buttons">
+                            <a href="#" class="btn"><span>View Toy</span></a>
+                            <a href="#" class="right">View Superwings</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

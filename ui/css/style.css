@@ -1334,6 +1334,10 @@ h6 {
   transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease 0.2s;
 }
 
+#toys #toys-slider .owl-item.active {
+  z-index: 100;
+}
+
 #toys #toys-slider .owl-item.active .popup {
   pointer-events: auto;
 }

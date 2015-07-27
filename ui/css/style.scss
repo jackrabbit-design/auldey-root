@@ -403,8 +403,10 @@
                     }
                 }
             }
-            .owl-item.active .popup { pointer-events:auto;
-                .expand { display:block; }
+            .owl-item.active { z-index:100;
+                .popup { pointer-events:auto;
+                    .expand { display:block; }
+                }
             }
             &.owl-carousel .owl-stage { padding-left:300px; padding-right:300px; }
         }
