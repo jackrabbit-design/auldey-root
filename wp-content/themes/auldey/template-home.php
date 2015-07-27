@@ -1,29 +1,34 @@
 <?php /* Template Name: Home */ get_header(); the_post(); ?>
 
-<div id="banner">
-    <div class="slide" style="background-image:url(ui/images/banner.jpg)"></div>
-    <div class="slide" style="background-image:url(ui/images/banner.jpg)"></div>
-    <div class="slide" style="background-image:url(ui/images/banner.jpg)"></div>
-</div>
+<?php if(have_rows('banners')){ ?>
+    <div id="banner">
+        <?php $i = 0; while(have_rows('banners')){ the_row(); $i++;
+            if($banner = get_sub_field('banner_image')){
+                $banner = $banner['sizes']['home-banner'];
+                $out = '<div class="slide" style="background-image:url('.$banner.')"></div>';
+                echo $out;
+            };
+            if($i == 1) echo $out; // Owl doesnt work if only 1 slide.
+        } ?>
+    </div>
+<?php } ?>
 
-<div id="brand-grid">
-    <div class="brand">
-        <img class="square"  src="ui/images/brandgrid-wr.jpg" alt="Wave Racers" />
-        <img src="ui/images/logo_waveracers.png" alt="Wave Racers" class="logo" style="bottom:-55px; margin-left:-125px" />
+<?php if(have_rows('brands')){ ?>
+    <div id="brand-grid">
+        <?php while(have_rows('brands')){ the_row();
+            $sq = get_sub_field('brand_image');
+            $logo = get_sub_field('brand_logo');
+            $logo = $logo['sizes'];
+            $mar = $logo['brand-grid-logo-width'] / 2;
+            $bot = $logo['brand-grid-logo-height'] / 2;
+            ?>
+            <div class="brand">
+                <img class="square"  src="<?php echo $sq['sizes']['brand-grid-image']; ?>" alt="<?php the_sub_field('brand_name'); ?>" />
+                <img src="<?php echo $logo['brand-grid-logo'] ?>" alt="<?php the_sub_field('brand_name'); ?>" class="logo" style="margin-left:-<?php echo $mar; ?>px; bottom:-<?php echo $bot; ?>px;" />
+            </div>
+        <?php } ?>
     </div>
-    <div class="brand">
-        <img class="square"  src="ui/images/brandgrid-sw.png" alt="Super Wings" />
-        <img src="ui/images/logo_superwings.png" alt="Wave Racers" class="logo" style="bottom:-49px; margin-left:-88px" />
-    </div>
-    <div class="brand">
-        <img class="square"  src="ui/images/brandgrid-rt.png" alt="Race-Tin" />
-        <img src="ui/images/logo_racetin.png" alt="Race-Tin" class="logo" style="bottom:-44px; margin-left:-108px" />
-    </div>
-    <div class="brand">
-        <img class="square"  src="ui/images/brandgrid-sr.png" alt="Sky Rover" />
-        <img src="ui/images/logo_skyrover.png" alt="Sky Rover" class="logo" style="bottom:-34px; margin-left:-103px" />
-    </div>
-</div>
+<?php } ?>
 
 <div id="videos">
     <h3>See 'Em in Action</h3>
