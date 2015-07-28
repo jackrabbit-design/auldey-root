@@ -265,7 +265,7 @@
 
     #nav-icon { display:none; }
 
-    #nav { float:right; margin-top:28px; padding-right:15px;
+    #nav { float:right; margin-top:28px; padding-right:15px; height:55px;
         > ul { font-size:0;
             > li { display:inline-block; vertical-align:top;
                 > a { display:block; padding:20px 24px 34px 26px; font:800 14px/1 Nexa; color:#fff; text-transform: uppercase; transform:skew(-24.5deg); position: relative; z-index:20;
@@ -305,8 +305,9 @@
     $bezier: 0.3s cubic-bezier(.15,.65,.35,1);
     #brand-grid { width:100%; margin:0 auto; height:144px; background:#E2E2E2; border-top:5px solid #fff; text-align:center; font-size:0; position: relative; z-index: 10; margin-bottom:130px;
         .brand { display: inline-block; margin:-35px 0 0; padding:0 9px 0; transition:all $bezier; vertical-align: top; position: relative;
-            .square { width:249px; display:block; transition:all $bezier; box-shadow:0 15px 14px rgba(112,112,112,0.5); border:5px solid #fff;  }
-            .logo { position: absolute; left:50%; z-index:10; transition:opacity 0.3s; opacity:1 }
+            .square { width:249px; display:block; transition:all $bezier; box-shadow:0 15px 14px rgba(112,112,112,0.5); border:5px solid #fff; position: relative; z-index:2; }
+            .square.anim { position:absolute; left:9px; top:0; z-index:8; box-shadow:none; opacity:0; }
+            .logo { position: absolute; left:50%; z-index:10; transition:opacity 0.3s; }
             &:after { content:''; border:5px solid #00A3E1; position:absolute; visibility:hidden; transition:top $bezier, right $bezier, bottom $bezier, left $bezier; top:5px; bottom:5px; left:13px; right:12px; }
         }
         .brand.small { margin:-20px 0 0; padding:0 16px;
@@ -316,6 +317,7 @@
         .brand.big { margin:-60px 0 0; padding:0 3px 0 4px;
             .square { width:287px; height:auto;}
             &:after { visibility:visible; top:5px; bottom:5px; left:9px; right:8px;  }
+            .square.anim { left:4px; opacity:1; }
         }
     }
 

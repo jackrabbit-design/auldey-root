@@ -13,17 +13,25 @@
     </div>
 <?php } ?>
 
-<?php if(have_rows('brands')){ ?>
+<?php if(have_rows('brands')){ $i = 1; ?>
     <div id="brand-grid">
         <?php while(have_rows('brands')){ the_row();
             $sq = get_sub_field('brand_image');
+            $sq = $sq['sizes']['brand-grid-image'];
             $logo = get_sub_field('brand_logo');
             $logo = $logo['sizes'];
             $mar = $logo['brand-grid-logo-width'] / 2;
             $bot = $logo['brand-grid-logo-height'] / 2;
+            $gif = get_sub_field('brand_gif');
+            $gif = $gif['url'];
             ?>
+            <script type="text/javascript">
+                var image<?php echo $i++ ?> = new Image();
+                image.src = <?php echo $gif; ?>
+            </script>
             <div class="brand">
-                <img class="square"  src="<?php echo $sq['sizes']['brand-grid-image']; ?>" alt="<?php the_sub_field('brand_name'); ?>" />
+                <img class="square static" src="<?php echo $sq; ?>" alt="<?php the_sub_field('brand_name'); ?>" />
+                <img class="square anim" src="<?php echo $gif; ?>" alt="<?php the_sub_field('brand_name'); ?>" />
                 <img src="<?php echo $logo['brand-grid-logo'] ?>" alt="<?php the_sub_field('brand_name'); ?>" class="logo" style="margin-left:-<?php echo $mar; ?>px; bottom:-<?php echo $bot; ?>px;" />
             </div>
         <?php } ?>
