@@ -17,14 +17,16 @@
     <div class="content-main">
         <?php the_content(); ?>
     </div>
-    <div class="gallery">
-        <img src="http://www.placekitten.com/525/364" alt="" />
-        <div class="gallery-small">
-            <span class="x" style="background-image:url(http://www.placekitten.com/79/82)" data-big="http://www.placekitten.com/525/364"></span>
-            <span style="background-image:url(http://www.placekitten.com/78/79)" data-big="http://www.placekitten.com/525/365"></span>
-            <span style="background-image:url(http://www.placekitten.com/78/81)" data-big="http://www.placekitten.com/525/366"></span>
+    <?php if($gal = get_field('image_gallery')){ $i = 1; ?>
+        <div class="gallery">
+            <img src="<?php echo $gal[0]['sizes']['gal-big'] ?>" alt="" />
+            <div class="gallery-small">
+                <?php foreach($gal as $img){ ?>
+                    <span <?php echo ($i++ == 1 ? 'class="x" ' : ''); ?> style="background-image:url(<?php echo $img['sizes']['gal-thb'] ?>)" data-big="<?php echo $img['sizes']['gal-big'] ?>"></span>
+                <?php } ?>
+            </div>
         </div>
-    </div>
+    <?php } ?>
 </section>
 
 <section id="demo">

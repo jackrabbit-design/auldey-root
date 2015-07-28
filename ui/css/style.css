@@ -307,6 +307,8 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 
 #brand-grid .brand .square.anim { position: absolute; left: 9px; top: 0; z-index: 8; box-shadow: none; opacity: 0; }
 
+.no-opacity #brand-grid .brand { display: none; }
+
 #brand-grid .brand .logo { position: absolute; left: 50%; z-index: 10; -webkit-transition: opacity 0.3s; transition: opacity 0.3s; }
 
 #brand-grid .brand:after { content: ''; border: 5px solid #00A3E1; position: absolute; visibility: hidden; -webkit-transition: top 0.3s cubic-bezier(0.15, 0.65, 0.35, 1), right 0.3s cubic-bezier(0.15, 0.65, 0.35, 1), bottom 0.3s cubic-bezier(0.15, 0.65, 0.35, 1), left 0.3s cubic-bezier(0.15, 0.65, 0.35, 1); transition: top 0.3s cubic-bezier(0.15, 0.65, 0.35, 1), right 0.3s cubic-bezier(0.15, 0.65, 0.35, 1), bottom 0.3s cubic-bezier(0.15, 0.65, 0.35, 1), left 0.3s cubic-bezier(0.15, 0.65, 0.35, 1); top: 5px; bottom: 5px; left: 13px; right: 12px; }
@@ -449,7 +451,7 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 
 #toys #toys-slider.owl-carousel .owl-stage { padding-left: 300px; padding-right: 300px; }
 
-#share { background: url(../images/share-top.png) center top no-repeat, url(../images/share-bottom.png) center bottom no-repeat; background-color: #EFEFF0; padding: 55px 0; text-align: center; }
+#share { background: url(../images/share-top.png) center top no-repeat, url(../images/share-bottom.png) center bottom no-repeat; background-color: #EFEFF0; padding: 55px 0; text-align: center; background-size: contain; }
 
 #share h3 { font: 800 22px/1 Nexa; color: #1E66A3; text-align: center; text-transform: uppercase; }
 

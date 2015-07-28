@@ -307,6 +307,7 @@
         .brand { display: inline-block; margin:-35px 0 0; padding:0 9px 0; transition:all $bezier; vertical-align: top; position: relative;
             .square { width:249px; display:block; transition:all $bezier; box-shadow:0 15px 14px rgba(112,112,112,0.5); border:5px solid #fff; position: relative; z-index:2; }
             .square.anim { position:absolute; left:9px; top:0; z-index:8; box-shadow:none; opacity:0; }
+            .no-opacity & { display:none; }
             .logo { position: absolute; left:50%; z-index:10; transition:opacity 0.3s; }
             &:after { content:''; border:5px solid #00A3E1; position:absolute; visibility:hidden; transition:top $bezier, right $bezier, bottom $bezier, left $bezier; top:5px; bottom:5px; left:13px; right:12px; }
         }
@@ -416,7 +417,7 @@
         }
     }
 
-    #share { background:url(../images/share-top.png) center top no-repeat, url(../images/share-bottom.png) center bottom no-repeat; background-color:#EFEFF0; padding:55px 0; text-align:center;
+    #share { background:url(../images/share-top.png) center top no-repeat, url(../images/share-bottom.png) center bottom no-repeat; background-color:#EFEFF0; padding:55px 0; text-align:center; background-size:contain;
         h3 { font:800 22px/1 Nexa; color:#1E66A3; text-align:center; text-transform:uppercase; }
         h2 { font:800 55px/1 Nexa; color:#D7262C; text-align:center; text-transform:uppercase; position: relative; display:inline-block;
             &:before, &:after { background:#CFCFCF; display:block; width:45px; height:3px; content:''; position:absolute; top:20px; }
