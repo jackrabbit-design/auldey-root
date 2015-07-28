@@ -41,7 +41,7 @@ add_image_size( 'brand-grid-image', 245, 227, true);
 add_image_size( 'toys-slider-image', 960, 568, false);
 add_image_size( 'home-video', 805, 477, true);
 add_image_size( 'toy-slide', 960, 570, false);
-add_image_size( 'gal-thb', 78, 78, true);
+add_image_size( 'gal-thb', 78, 78, false);
 add_image_size( 'gal-big', 525, 365, false);
 add_image_size( 'toy-thb', 270, 195, false);
 

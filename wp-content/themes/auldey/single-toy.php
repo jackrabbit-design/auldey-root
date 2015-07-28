@@ -28,9 +28,9 @@
         <img src="<?php echo $big[0] ?>" alt="" />
         <div class="gallery-small">
             <span class="x" style="background-image:url(<?php echo $thb[0] ?>)" data-big="<?php echo $big[0] ?>"></span>
-            <?php foreach($gal as $img){ ?>
+            <?php if($gal){ foreach($gal as $img){ ?>
                 <span style="background-image:url(<?php echo $img['sizes']['gal-thb'] ?>)" data-big="<?php echo $img['sizes']['gal-big'] ?>"></span>
-            <?php } ?>
+            <?php } } ?>
         </div>
     </div>
 </section>
