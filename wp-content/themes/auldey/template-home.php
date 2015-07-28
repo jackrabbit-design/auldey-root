@@ -114,61 +114,49 @@
     </div>
 </div>
 
+<?php
+
+  $username = get_field('instagram_username','options');
+  $access_token = get_field('instagram_access_token','options');
+  $count = '5'; //How many shots do you want?
+
+  //2 - Include the php class
+  include('instagram.php');
+
+  //3 - Instanciate
+  if(!empty($username) && $username!='yourusername' && !empty($access_token) && $access_token!='youraccesstoken'){
+      $isg = new instagramPhp($username,$access_token); //instanciates the class with the parameters
+      $shots = $isg->getUserMedia(array('count'=>$count)); //Get the shots from instagram
+  } else {
+      echo'Please update your settings to provide a valid username and access token';
+  }
+
+?>
+
 <div id="share">
     <div class="wrap">
         <h3>Share the love for your</h3>
         <h2>#Auldeytoys</h2>
         <div id="instagram">
-            <div class="shot s1">
-                <img src="http://www.placekitten.com/301/301" alt="" />
-                <div class="bottom">
-                    <span class="text">@toyfan2002</span>
-                    <span class="bg"></span>
-                </div>
-                <div class="content">
-                    <div class="text">Donnie’s gettin’ dizzy chasin’ tornados! <a href="#">#auldeytoys</a> <a href="">#nevertoooldfortoys</a> <a href="">#sundayfunday</a> <a href="">#superwings</a></div>
-                </div>
-            </div>
-            <div class="shot s2">
-                <img src="http://www.placekitten.com/301/301" alt="" />
-                <div class="bottom">
-                    <span class="text">@toyfan2002</span>
-                    <span class="bg"></span>
-                </div>
-                <div class="content">
-                    <div class="text">Donnie’s gettin’ dizzy chasin’ tornados! <a href="#">#auldeytoys</a> <a href="">#nevertoooldfortoys</a> <a href="">#sundayfunday</a> <a href="">#superwings</a></div>
-                </div>
-            </div>
-            <div class="shot s3">
-                <img src="http://www.placekitten.com/301/301" alt="" />
-                <div class="bottom">
-                    <span class="text">@toyfan2002</span>
-                    <span class="bg"></span>
-                </div>
-                <div class="content">
-                    <div class="text">Donnie’s gettin’ dizzy chasin’ tornados! <a href="#">#auldeytoys</a> <a href="">#nevertoooldfortoys</a> <a href="">#sundayfunday</a> <a href="">#superwings</a></div>
-                </div>
-            </div>
-            <div class="shot s4">
-                <img src="http://www.placekitten.com/301/301" alt="" />
-                <div class="bottom">
-                    <span class="text">@toyfan2002</span>
-                    <span class="bg"></span>
-                </div>
-                <div class="content">
-                    <div class="text">Donnie’s gettin’ dizzy chasin’ tornados! <a href="#">#auldeytoys</a> <a href="">#nevertoooldfortoys</a> <a href="">#sundayfunday</a> <a href="">#superwings</a></div>
-                </div>
-            </div>
-            <div class="shot s5">
-                <img src="http://www.placekitten.com/301/301" alt="" />
-                <div class="bottom">
-                    <span class="text">@toyfan2002</span>
-                    <span class="bg"></span>
-                </div>
-                <div class="content">
-                    <div class="text">Donnie’s gettin’ dizzy chasin’ tornados! <a href="#">#auldeytoys</a> <a href="">#nevertoooldfortoys</a> <a href="">#sundayfunday</a> <a href="">#superwings</a></div>
-                </div>
-            </div>
+            <?php if(!empty($shots)){
+                //echo $isg->simpleDisplay($shots);
+                $i = 1;
+                foreach($shots->data as $istg){
+                    //echo "<pre>"; print_r($istg); echo "</pre>";
+                    ?>
+                    <div class="shot s<?php echo $i++ ?>">
+                        <img src="<?php echo $istg->images->low_resolution->url ?>" alt="" />
+                        <div class="bottom">
+                            <span class="text">@toyfan2002</span>
+                            <span class="bg"></span>
+                        </div>
+                        <div class="content">
+                            <div class="text"><?php echo $istg->caption->text ?></div>
+                        </div>
+                    </div>
+                    <?
+                }
+            } ?>
         </div>
         <div class="social">
             <p>Follow us on Instagram and share your photos with #AULDEYTOYS!</p>
