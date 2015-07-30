@@ -25,10 +25,6 @@
             $gif = get_sub_field('brand_gif');
             $gif = $gif['url'];
             ?>
-            <script type="text/javascript">
-                var image<?php echo $i++ ?> = new Image();
-                image.src = <?php echo $gif; ?>
-            </script>
             <div class="brand">
                 <img class="square static" src="<?php echo $sq; ?>" alt="<?php the_sub_field('brand_name'); ?>" />
                 <img class="square anim" src="<?php echo $gif; ?>" alt="<?php the_sub_field('brand_name'); ?>" />
@@ -151,15 +147,17 @@
                 $i = 1;
                 foreach($shots->data as $istg){
                     //echo "<pre>"; print_r($istg); echo "</pre>";
+                    $blueText = $istg->caption->text;
+                    preg_match('#\[(.*?)\]#', $blueText, $match);
                     ?>
                     <div class="shot s<?php echo $i++ ?>">
                         <img src="<?php echo $istg->images->low_resolution->url ?>" alt="" />
                         <div class="bottom">
-                            <span class="text">@toyfan2002</span>
+                            <span class="text"><?php echo $match[1] ?></span>
                             <span class="bg"></span>
                         </div>
                         <div class="content">
-                            <div class="text"><?php echo $istg->caption->text ?></div>
+                            <div class="text"><?php echo str_replace($match,'',$blueText) ?></div>
                         </div>
                     </div>
                     <?

@@ -15,7 +15,14 @@
 
 <section id="product" class="clearfix">
     <div class="content-main">
-        <?php the_content(); ?>
+        <?php
+        the_content();
+        if($manual = get_field('associated_manual')){
+            $manual = get_field('manual_download',$manual->ID);
+            echo '<a class="btn" href="'.$manual.'" download><span>Download Manual</span></a>';
+        }
+        ?>
+
     </div>
     <?php
     $gal = get_field('image_gallery');
@@ -87,13 +94,13 @@
                 <?php if($h2) echo "<h2>{$h2}</h2>"; ?>
                 <div class="toys clearfix">
                     <?php foreach($toys as $toy){
-                        if($i++ >= 3) continue; $toy ?>
+                        if($i++ > 3) continue; ?>
                         <a href="<?php echo get_permalink($toy); ?>" class="toy">
                             <?php if(has_post_thumbnail($toy)){ ?>
                                 <?php echo get_the_post_thumbnail($toy,'toy-thb'); ?>
                             <?php } ?>
                             <h4><?php echo get_the_title($toy) ?></h4>
-                        </div>
+                        </a>
                     <?php } ?>
                 </div>
                 <a href="<?php the_sub_field('button_link') ?>" class="btn"><span><?php the_sub_field('button_label') ?></span></a>
