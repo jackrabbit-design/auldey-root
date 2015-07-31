@@ -139,8 +139,8 @@
 
 <div id="share">
     <div class="wrap">
-        <h3>Share the love for your</h3>
-        <h2>#Auldeytoys</h2>
+        <h3><?php the_field('social_small_header'); ?></h3>
+        <h2><?php the_field('social_large_header'); ?></h2>
         <div id="instagram">
             <?php if(!empty($shots)){
                 //echo $isg->simpleDisplay($shots);
@@ -165,17 +165,17 @@
             } ?>
         </div>
         <div class="social">
-            <p>Follow us on Instagram and share your photos with #AULDEYTOYS!</p>
-            <a href="#" class="follow red">
+            <p><?php the_field('instagram_callout'); ?></p>
+            <a href="<?php the_field('facebook_url','options'); ?>" class="follow red">
                 <div class="social-instagram"></div>
-                <span>Follow us @AULDEYTOYS</span>
+            <span><?php the_field('instagram_label'); ?></span>
             </a>
         </div>
         <div class="social">
-            <p>Learn about new toys, win cool prizes and more by friending us on Facebook!</p>
-            <a href="#" class="follow blue">
+            <p><?php the_field('facebook_callout'); ?></p>
+            <a href="//instagram.com/<?php the_field('instagram_username','options'); ?>" class="follow blue">
                 <div class="social-facebook"></div>
-                <span>Friend on Facebook</span>
+                <span><?php the_field('facebook_label'); ?></span>
             </a>
         </div>
     </div>
