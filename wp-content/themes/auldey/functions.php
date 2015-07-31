@@ -35,15 +35,19 @@ add_filter('login_errors',create_function('$a', "return null;"));
 /* Post Thumbnail Sizes */
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 64, 64, true );
-add_image_size( 'home-banner', 1620, 586, true);
-add_image_size( 'brand-grid-logo', 250, 110, false);
-add_image_size( 'brand-grid-image', 245, 227, true);
-add_image_size( 'toys-slider-image', 960, 568, false);
-add_image_size( 'home-video', 805, 477, true);
-add_image_size( 'toy-slide', 960, 570, false);
-add_image_size( 'gal-thb', 78, 78, false);
-add_image_size( 'gal-big', 525, 365, false);
-add_image_size( 'toy-thb', 270, 195, false);
+add_image_size( 'home-banner', 1620, 586, true );
+add_image_size( 'brand-grid-logo', 250, 110, false );
+add_image_size( 'brand-grid-image', 245, 227, true );
+add_image_size( 'toys-slider-image', 960, 568, false );
+add_image_size( 'home-video', 805, 477, true );
+add_image_size( 'toy-slide', 960, 570, false );
+add_image_size( 'gal-thb', 78, 78, false );
+add_image_size( 'gal-big', 525, 365, false );
+add_image_size( 'toy-thb', 270, 195, false );
+add_image_size( 'brand-slide', 936, 435, true );
+add_image_size( 'brand-logo', 440, 300, false );
+add_image_size( 'brand-half', 480, 346, true );
+add_image_size( 'toy-grid', 310, 215, true );
 
 /* Declare Nav Menu Areas */
 if ( function_exists( 'register_nav_menus' ) ) {

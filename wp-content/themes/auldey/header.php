@@ -34,6 +34,7 @@
     <title><?php wp_title() ?></title>
     <link type="text/plain" rel="author" href="<?php bloginfo('url') ?>/authors.txt" />
     <link type="image/x-icon" rel="shortcut icon" href="<?php bloginfo('url') ?>/favicon.png" />
+
     <?php wp_head(); ?>
 </head>
 <body>
