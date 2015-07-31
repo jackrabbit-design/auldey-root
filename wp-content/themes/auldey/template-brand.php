@@ -27,13 +27,13 @@
 
     <?php if(have_rows('brand_modules')){ while(have_rows('brand_modules')){ the_row(); ?>
 
-        <?php if(get_row_layout() == 'full_w_background'){ ?>
+        <?php if(get_row_layout() == 'full'){ ?>
 
-            <section class="full" style="background-image:url('ui/images/bg-wr.jpg'); padding-top:<?php echo $logoMar ?>;"><!-- margin bottom half logo height + 30 -->
+            <section class="full" style="background-image:url('ui/images/bg-wr.jpg'); padding-top:<?php echo $logoMar + 30 ?>px;"><!-- margin bottom half logo height + 30 -->
                 <div class="content-main">
-                    <h2><?php the_field('header'); ?></h2>
-                    <p><?php the_field('content'); ?></p>
-                    <a href="#" class="btn"><span>View Toys</span></a>
+                    <h2><?php the_sub_field('header'); ?></h2>
+                    <p><?php the_sub_field('content'); ?></p>
+                    <a href="#" class="btn"><span><?php the_sub_field('button_label'); ?></span></a>
                 </div>
             </section>
 
