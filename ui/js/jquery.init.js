@@ -89,7 +89,8 @@ function _lbVideo(){
 function _linkCheck(){
     $(document).on('click', 'a.external', function(e){
         e.preventDefault;
-        var url = e.target.href;
+        var url = e.currentTarget.href;
+        console.log(e);
         $('.external-lb a.btn').attr('href',url);
         $.magnificPopup.open({
             mainClass: 'mfp-fade',

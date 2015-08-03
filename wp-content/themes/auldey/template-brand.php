@@ -41,17 +41,18 @@
 
             $gray = (get_sub_field('gray_background') ? 'gray' : '');
             $orientation = (get_sub_field('orientation') == 'Text on Left' ? 'text-left' : 'text-right');
+            $img = get_sub_field('image');
 
             ?>
 
             <section class="half <?php echo $gray . ' ' . $orientation; ?> clearfix">
                 <div class="wrap">
                     <div class="content-main">
-                        <h4>BUILT FOR SPEED</h4>
-                        <h2>Lorem ipsum dolor sit amet, consectetur posit</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper volutpat erat et consequat. Quisque vestibulum ut ipsum in condimentum. Nulla nunc ligula, dignissim eget laoreet eget.</p>
+                        <?php the_sub_field('content'); ?>
                     </div>
-                    <img src="http://www.placekitten.com/480/346" alt="" />
+                    <?php if($img){ ?>
+                        <img src="<?php echo $img['sizes']['brand-half']; ?>" alt="" />
+                    <?php } ?>
                 </div>
             </section>
 
@@ -110,16 +111,31 @@
             <a><span>Next &#9658;</span></a>
         </section>
 
+    <?php } wp_reset_query(); ?>
+
+    <?php if(have_rows('stores_available')){ ?>
+        <section id="purchase">
+            <h4><?php the_field('stores_text'); ?></h4>
+            <div class="stores">
+                <?php while(have_rows('stores_available')){ the_row();
+                    $logo = get_sub_field('logo');
+                    $logo = $logo['sizes']['store-logo'];
+                    $alt = get_sub_field('store_name');
+                    $link = get_sub_field('url');
+                    if($link){
+                        $el = 'a href="'.$link.'" class="store external"';
+                        $cl = 'a';
+                    }else{
+                        $el = 'div class="store"';
+                        $cl = $el;
+                    }
+                    ?>
+                    <<?php echo $el; ?>>
+                        <img src="<?php echo $logo ?>" alt="<?php echo $alt ?>" />
+                    </<?php echo $cl; ?>>
+                <?php } ?>
+            </div>
+        </section>
     <?php } ?>
-
-    <section id="purchase">
-        <h4>Where to purchase WaveRacer toys</h4>
-        <div class="stores">
-            <div class="store"><img src="http://placekitten.com/185/43" alt="" /></div>
-            <div class="store"><img src="http://placekitten.com/77/102" alt="" /></div>
-            <div class="store"><img src="http://placekitten.com/182/50" alt="" /></div>
-        </div>
-    </section>
-
 
 <?php get_footer(); ?>
