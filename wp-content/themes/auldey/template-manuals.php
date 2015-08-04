@@ -1,13 +1,20 @@
 <?php /* Template Name: Manuals */ get_header(); the_post(); ?>
 
 <section id="title" class="noimg"><!-- .noimg if no image. padding - half img height + 40 -->
-    <h2>SUPPORT</h2>
-    <h1>Manuals</h1>
+    <?php
+    if($post->post_parent){
+        $parent = get_the_title($post->post_parent);
+    }else{
+        $parent = "Auldey";
+    }
+    ?>
+    <h2><?php echo $parent ?></h2>
+    <h1><?php the_title(); ?></h1>
 </section>
 
 <section class="callout manual">
-    <h3>Looking for a user manual?</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper volutpat erat et consequat. Quisque vestibulum ut ipsum in condimentum. Nulla nunc ligula, dignissim eget laoreet eget, cursus a sem.</p>
+    <h3><?php the_field('header_title'); ?></h3>
+    <p><?php the_field('header_text'); ?></p>
 </section>
 
 <section id="manual-types">
@@ -67,7 +74,9 @@ if(have_posts()){
     <ul id="results">
         <?php while(have_posts()){ the_post(); ?>
             <li><a href="<?php the_field('manual_download') ?>" download class="clearfix">
-                <img src="http://www.placekitten.com/144/99" alt="" />
+                <?php if(has_post_thumbnail(get_field('associated_toy'))){
+                    echo get_the_post_thumbnail(get_field('associated_toy'),'manual-grid');
+                } ?>
                 <p><?php the_title() ?>
                     <small><?php the_field('model_number'); ?></small>
                 </p>
@@ -75,6 +84,6 @@ if(have_posts()){
         <?php } ?>
     </ul>
 </section>
-<?php } ?>
+<?php } wp_reset_query(); ?>
 
 <?php get_footer(); ?>
