@@ -109,6 +109,21 @@ function _linkCheck(){
     });
 }
 
+function _resultsHeight(){
+    $(window).on('load resize',function(){
+        $('#results.videos li:nth-child(odd)').each(function(){
+            $(this).css('height','auto').next().css('height','auto');
+            var h1 = $(this).height();
+            var h2 = $(this).next().height();
+            if(h1 < h2){
+                $(this).height(h2);
+            }else{
+                $(this).next().height(h1);
+            }
+        });
+    });
+}
+
 jQuery(function(){
 
     console.log(window.location.hostname);
@@ -122,5 +137,6 @@ jQuery(function(){
     _mobileNav();
     _lbVideo();
     _linkCheck();
+    _resultsHeight();
 
 });

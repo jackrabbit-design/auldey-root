@@ -49,6 +49,7 @@ add_image_size( 'brand-logo', 440, 300, false );
 add_image_size( 'brand-half', 480, 346, true );
 add_image_size( 'toy-grid', 310, 215, true );
 add_image_size( 'store-logo', 185, 105, false );
+add_image_size( 'vid-grid', 416, 246, true );
 
 /* Declare Nav Menu Areas */
 if ( function_exists( 'register_nav_menus' ) ) {
