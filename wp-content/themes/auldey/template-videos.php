@@ -15,8 +15,7 @@
 
 <section class="callout manual">
     <h3><?php the_field('header_title'); ?></h3>
-    <p><?php the_field('header_text
-    '); ?></p>
+    <p><?php the_field('header_text'); ?></p>
 </section>
 
 <section id="manual-types">

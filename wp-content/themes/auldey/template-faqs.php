@@ -2,45 +2,34 @@
 
 
 <section id="title" class="noimg"><!-- .noimg if no image. padding - half img height + 40 -->
-    <h2>SUPPORT</h2>
-    <h1>Frequently Asked Questions</h1>
+    <?php
+    if($post->post_parent){
+        $parent = get_the_title($post->post_parent);
+    }else{
+        $parent = "Auldey";
+    }
+    ?>
+    <h2><?php echo $parent ?></h2>
+    <h1><?php the_title(); ?></h1>
 </section>
 
-<section class="callout">
-    <h3>Lorem ipsum dolor sit amet consectetur.</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper volutpat erat et consequat. Quisque vestibulum ut ipsum in condimentum. Nulla nunc ligula, dignissim eget laoreet eget, cursus a sem..</p>
+<section class="callout manual">
+    <h3><?php the_field('header_title'); ?></h3>
+    <p><?php the_field('header_text'); ?></p>
 </section>
 
-<section id="faqs">
-    <div class="faq">
-        <h3 class="q">Lorem ipsum dolor sit amet, consectetur posit?</h3>
-        <div class="a content-main">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper volutpat erat et consequat. Quisque vestibulum ut ipsum in condimentum. Nulla nunc ligula, dignissim eget laoreet eget. In malesuada dui ac odio interdum, ac tincidunt risus faucibus. Nunc vestibulum mollis luctus. Aliquam erat volutpat.</p>
-            <p>Sed ullamcorper magna ac tellus auctor commodo. Etiam lobortis feugiat ante id fringilla. Cras ut lacus diam. Vestibulum gravida, turpis in blandit vehicula, sem felis gravida mi, in egestas metus quam ut ipsum. </p>
+<?php if(have_rows('faqs')){ ?>
+    <section id="faqs">
+        <?php while(have_rows('faqs')){ the_row(); ?>
+            <div class="faq">
+                <h3 class="q"><?php the_sub_field('question'); ?></h3>
+                <div class="a content-main">
+                    <?php the_sub_field('answer'); ?>
+                </div>
+            <?php } ?>
         </div>
-    </div>
-    <div class="faq">
-        <h3 class="q">Lorem ipsum dolor sit amet, consectetur posit?</h3>
-        <div class="a content-main">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper volutpat erat et consequat. Quisque vestibulum ut ipsum in condimentum. Nulla nunc ligula, dignissim eget laoreet eget. In malesuada dui ac odio interdum, ac tincidunt risus faucibus. Nunc vestibulum mollis luctus. Aliquam erat volutpat.</p>
-            <p>Sed ullamcorper magna ac tellus auctor commodo. Etiam lobortis feugiat ante id fringilla. Cras ut lacus diam. Vestibulum gravida, turpis in blandit vehicula, sem felis gravida mi, in egestas metus quam ut ipsum. </p>
-        </div>
-    </div>
-    <div class="faq">
-        <h3 class="q">Lorem ipsum dolor sit amet, consectetur posit?</h3>
-        <div class="a content-main">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper volutpat erat et consequat. Quisque vestibulum ut ipsum in condimentum. Nulla nunc ligula, dignissim eget laoreet eget. In malesuada dui ac odio interdum, ac tincidunt risus faucibus. Nunc vestibulum mollis luctus. Aliquam erat volutpat.</p>
-            <p>Sed ullamcorper magna ac tellus auctor commodo. Etiam lobortis feugiat ante id fringilla. Cras ut lacus diam. Vestibulum gravida, turpis in blandit vehicula, sem felis gravida mi, in egestas metus quam ut ipsum. </p>
-        </div>
-    </div>
-    <div class="faq">
-        <h3 class="q">Lorem ipsum dolor sit amet, consectetur posit?</h3>
-        <div class="a content-main">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper volutpat erat et consequat. Quisque vestibulum ut ipsum in condimentum. Nulla nunc ligula, dignissim eget laoreet eget. In malesuada dui ac odio interdum, ac tincidunt risus faucibus. Nunc vestibulum mollis luctus. Aliquam erat volutpat.</p>
-            <p>Sed ullamcorper magna ac tellus auctor commodo. Etiam lobortis feugiat ante id fringilla. Cras ut lacus diam. Vestibulum gravida, turpis in blandit vehicula, sem felis gravida mi, in egestas metus quam ut ipsum. </p>
-        </div>
-    </div>
-</section>
 
+    </section>
+<?php } ?>
 
 <?php get_footer(); ?>
