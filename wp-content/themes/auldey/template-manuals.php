@@ -46,6 +46,15 @@
     <button class="submit" type="submit">Find it</button>
 </form>
 
+<?php
+$args = array(
+    'post_type' => 'manual',
+    'posts_per_page' => 6
+);
+
+query_posts($args);
+if(have_posts()){
+?>
 
 <section id="manual-results">
     <div class="content-main">
@@ -56,37 +65,16 @@
         <h3>TTYW85819</h3>
     </div>
     <ul id="results">
-        <li><a href="#" class="clearfix">
-            <img src="http://www.placekitten.com/144/99" alt="" />
-            <p>Surge XT
-                <small>1F2B3C9A</small>
-            </p>
-        </a></li>
-        <li><a href="#" class="clearfix">
-            <img src="http://www.placekitten.com/144/99" alt="" />
-            <p>Surge XT
-                <small>1F2B3C9A</small>
-            </p>
-        </a></li>
-        <li><a href="#" class="clearfix">
-            <img src="http://www.placekitten.com/144/99" alt="" />
-            <p>Surge XT
-                <small>1F2B3C9A</small>
-            </p>
-        </a></li>
-        <li><a href="#" class="clearfix">
-            <img src="http://www.placekitten.com/144/99" alt="" />
-            <p>Surge XT
-                <small>1F2B3C9A</small>
-            </p>
-        </a></li>
-        <li><a href="#" class="clearfix">
-            <img src="http://www.placekitten.com/144/99" alt="" />
-            <p>Surge XT
-                <small>1F2B3C9A</small>
-            </p>
-        </a></li>
+        <?php while(have_posts()){ the_post(); ?>
+            <li><a href="<?php the_field('manual_download') ?>" download class="clearfix">
+                <img src="http://www.placekitten.com/144/99" alt="" />
+                <p><?php the_title() ?>
+                    <small><?php the_field('model_number'); ?></small>
+                </p>
+            </a></li>
+        <?php } ?>
     </ul>
 </section>
+<?php } ?>
 
 <?php get_footer(); ?>
