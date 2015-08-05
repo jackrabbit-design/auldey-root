@@ -261,7 +261,7 @@ class jrd_walker extends Walker_Nav_Menu
 
         ! empty ( $class_names )
         and $class_names = ' class="'. esc_attr( $class_names ) . '"';
-        $output .= "<li id='menu-item-$item->ID' $class_names>";
+        $output .= "<li id='menu-item-$item->ID' $class_names data-image=\"$item->description\">";
 
         $attributes  = '';
 

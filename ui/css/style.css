@@ -190,7 +190,7 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 
 .btn:hover, button[type=submit]:hover { background: #D7262C; -webkit-transition: all 0.15s; transition: all 0.15s; }
 
-#header { height: 83px; background: #1E66A3; background-image: -webkit-linear-gradient(270deg, rgba(30, 102, 163, 0) 10%, #154f8b 91%); background-image: linear-gradient(-180deg, rgba(30, 102, 163, 0) 10%, #154f8b 91%); box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.3); position: relative; z-index: 100; }
+#header { height: 83px; background: #1E66A3; background-image: -webkit-linear-gradient(270deg, rgba(30, 102, 163, 0) 10%, #154f8b 91%); background-image: linear-gradient(-180deg, rgba(30, 102, 163, 0) 10%, #154f8b 91%); box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.3); position: relative; z-index: 10; }
 #header .header-wrap { max-width: 950px; margin: 0 auto; }
 #header .header-wrap .logo-container { display: inline-block; position: relative; }
 #header .header-wrap .logo-container .logo { position: relative; z-index: 10; }
@@ -203,13 +203,18 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 #nav > ul > li { display: inline-block; vertical-align: top; }
 #nav > ul > li > a { display: block; padding: 20px 24px 34px 26px; font: 800 14px/1 Nexa; color: #fff; text-transform: uppercase; -webkit-transform: skew(-24.5deg); -ms-transform: skew(-24.5deg); transform: skew(-24.5deg); position: relative; z-index: 20; }
 #nav > ul > li > a span { -webkit-transform: skew(24.5deg); -ms-transform: skew(24.5deg); transform: skew(24.5deg); display: block; }
-#nav > ul > li:hover a { background: #00A3E1; box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.3); }
+#nav > ul > li:hover > a { background: #00A3E1; box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.3); }
 #nav > ul > li.menu-item-has-children > a:after { content: '\25bc'; color: #5DBADD; font-size: 11px; position: absolute; bottom: 36px; right: 6px; display: block; -webkit-transform: skew(24.5deg); -ms-transform: skew(24.5deg); transform: skew(24.5deg); }
 #nav > ul > li ul { height: 0; overflow: hidden; background: #fff url(../images/bg-subnav.png) center 11px no-repeat; position: absolute; top: 84px; left: 0; width: 100%; z-index: 15; box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3); -webkit-transition: height 0.2s ease-out; transition: height 0.2s ease-out; }
 #nav > ul > li ul li a { color: #D7262C; display: block; font-size: 13px; font-weight: 500; line-height: 40px; padding: 0 28px; text-transform: uppercase; font-family: Nexa; }
 #nav > ul > li:hover ul { height: 380px; }
 #nav > ul > li.search img { width: 18px; height: 17px; }
 #nav > ul > li.search a { padding: 18px 18px 30px 16px; }
+#nav > ul > li.brands ul { text-align: center; }
+#nav > ul > li.brands ul li.brand { display: inline-block; width: 25%; max-width: 270px; height: 340px; vertical-align: top; position: relative; padding: 30px 0 0; }
+#nav > ul > li.brands ul li.brand a { padding: 0; position: absolute; left: 0; bottom: 0; width: 100%; text-align: center; -webkit-transition: bottom 0.15s; transition: bottom 0.15s; }
+#nav > ul > li.brands ul li.brand a:hover { bottom: 10px; }
+#nav > ul > li.brands ul li.brand img { max-width: 100%; vertical-align: bottom; }
 
 #banner { height: 565px; width: 100%; }
 #banner.owl-carousel .owl-stage-outer { width: 100%; }

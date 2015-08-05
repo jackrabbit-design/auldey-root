@@ -124,6 +124,15 @@ function _resultsHeight(){
     });
 }
 
+function _subNav(){
+    $('.sub-menu li.brand').each(function(){
+        var subImg = $(this).data('image');
+        var subText = $('a',this).text();
+        var img = $('<img src="'+subImg+'" alt="'+subText+'" />');
+        $('a',this).html(img);
+    })
+}
+
 jQuery(function(){
 
     console.log(window.location.hostname);
@@ -138,5 +147,6 @@ jQuery(function(){
     _lbVideo();
     _linkCheck();
     _resultsHeight();
+    _subNav();
 
 });
