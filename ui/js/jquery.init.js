@@ -133,6 +133,41 @@ function _subNav(){
     })
 }
 
+function _ageCheck(){
+    $('#agecheck a.yes').on('click',function(){
+        $('#agecheck').slideUp(200);
+        $('#contact').slideDown(200);
+        return false;
+    });
+    $('#agecheck a.no').on('click',function(){
+        $('#agecheck').slideUp(200);
+        $('#denied').slideDown(200);
+        return false;
+    });
+}
+
+function _brandSort(){
+    $('#manual-brands a').on('click',function(){
+        if($(this).hasClass('active')){
+            $(this).removeClass('active');
+            $('#results li').show();
+            $('#manual-results .sort-text span').text("All");
+        }else{
+            $(this).addClass('active').siblings('.active').removeClass('active');
+            var brand = $(this).data('brand');
+            $('#results li').hide();
+            $('#results li[data-brand='+brand+']').show();
+            var name = $(this).data('name');
+            $('#manual-results .sort-text span').text(name);
+        }
+        return false;
+    });
+
+    $('#manual-types ul li').on('click',function(){
+        window.location.href = $(this).data('href');
+    })
+}
+
 jQuery(function(){
 
     console.log(window.location.hostname);
@@ -148,5 +183,7 @@ jQuery(function(){
     _linkCheck();
     _resultsHeight();
     _subNav();
+    _ageCheck();
+    _brandSort();
 
 });

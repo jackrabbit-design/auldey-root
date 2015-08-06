@@ -26,8 +26,8 @@
                 <div class="a content-main">
                     <?php the_sub_field('answer'); ?>
                 </div>
-            <?php } ?>
-        </div>
+            </div>
+        <?php } ?>
 
     </section>
 <?php } ?>
