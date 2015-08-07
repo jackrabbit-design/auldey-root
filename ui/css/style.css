@@ -263,7 +263,7 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 #videos .video.large:hover .play { background-position: -102px top; }
 #videos .video.small { width: 267px; height: 230px; float: right; clear: right; margin-bottom: 17px; }
 #videos .video.small img { width: 267px; height: 166px; display: block; -webkit-transform-origin: center center; -ms-transform-origin: center center; transform-origin: center center; }
-#videos .video.small .light { bottom: -56px; margin-left: -150px; width: 300px; height: 150px; background: #1173B8; -webkit-transform: rotate(-10deg); -ms-transform: rotate(-10deg); transform: rotate(-10deg); }
+#videos .video.small .light { bottom: -56px; margin-left: -145px; width: 300px; height: 150px; background: #1173B8; -webkit-transform: rotate(-10deg); -ms-transform: rotate(-10deg); transform: rotate(-10deg); }
 #videos .video.small .dark { bottom: -60px; margin-left: -150px; width: 300px; height: 75px; background: #0D66A4; -webkit-transform: rotate(9deg); -ms-transform: rotate(9deg); transform: rotate(9deg); }
 #videos .video.small .text { padding: 0 20px 20px; height: 80px; text-align: right; }
 #videos .video.small h4 { font: 500 12px/1 Nexa; color: #64C7ED; text-transform: uppercase; -webkit-transition: color 0.2s; transition: color 0.2s; }
@@ -488,8 +488,11 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 #toy-grid ul li p { font: 700 18px/18px Nexa; color: #1E66A3; }
 
 #pagination { text-align: center; padding: 52px 0; max-width: 990px; border-bottom: 1px solid #CFCFCF; margin: 0 auto; }
-#pagination a { padding: 11px 22px 14px; background: #00A3E1; -webkit-transform: skew(-19deg); -ms-transform: skew(-19deg); transform: skew(-19deg); display: inline-block; box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3); margin: 0; }
-#pagination a span { display: inline-block; -webkit-transform: skew(19deg); -ms-transform: skew(19deg); transform: skew(19deg); font: 18px/23px Nexa; text-transform: uppercase; font-weight: 600; color: #fff; }
+#pagination a, #pagination span.current { padding: 11px 22px 14px; background: #00A3E1; -webkit-transform: skew(-19deg); -ms-transform: skew(-19deg); transform: skew(-19deg); display: inline-block; box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3); margin: 0; }
+#pagination a span, #pagination span.current span { display: inline-block; -webkit-transform: skew(19deg); -ms-transform: skew(19deg); transform: skew(19deg); font: 18px/23px Nexa; text-transform: uppercase; font-weight: 600; color: #fff; }
+#pagination a:hover, #pagination span.current:hover { background: #D7262C; }
+#pagination span.current { background: #B3B3B3; }
+#pagination span.current:hover { background: #B3B3B3; }
 
 #manual-types { text-align: center; border-bottom: 2px solid #CFCFCF; max-width: 990px; margin: 0 auto 70px; }
 #manual-types ul { background: #fff; display: inline-block; position: relative; top: 28px; padding: 0 10px; }

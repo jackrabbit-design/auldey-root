@@ -2,14 +2,14 @@
 
 
     <?php
-    $bg = get_field('banner_background'); printr($bg);
+    $bg = get_field('banner_background');
     $bg = ($bg ? 'style="background-image:url(' . $bg['sizes']['home-banner'] . ')"' : '');
     ?>
 
     <section id="brand-slider" <?php echo $bg ?>>
         <?php if($slides = get_field('banner_slider')){ ?>
             <div id="brand-slides">
-                <?php foreach($slides as $s){ //printr($s); ?>
+                <?php foreach($slides as $s){ ?>
                     <img src="<?php echo $s['sizes']['brand-slide']; ?>" alt="" class="slide" />
                 <?php } ?>
             </div>
@@ -32,7 +32,7 @@
             <section class="full" style="background-image:url('ui/images/bg-wr.jpg'); padding-top:<?php echo $logoMar + 30 ?>px;"><!-- margin bottom half logo height + 30 -->
                 <div class="content-main">
                     <h2><?php the_sub_field('header'); ?></h2>
-                    <p><?php the_sub_field('content'); ?></p>
+                    <?php the_sub_field('content'); ?>
                     <a href="#" class="btn"><span><?php the_sub_field('button_label'); ?></span></a>
                 </div>
             </section>
@@ -76,40 +76,47 @@
     $brand = get_field('brand_to_show');
     $brand = $brand->slug;
 
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $args = array(
         'post_type' => 'toy',
         'posts_per_page' => 6,
-        'brand' => $brand
+        'brand' => $brand,
+        'paged' => $paged
     );
 
     query_posts($args);
 
     if(have_posts()){
     ?>
+<div class="everything">
 
-        <section id="toy-grid">
-            <ul>
-                <?php while(have_posts()){ the_post();
-                    ?>
-                    <li>
-                        <a href="<?php the_permalink() ?>">
-                            <?php if(has_post_thumbnail()){
-                                the_post_thumbnail('toy-grid');
-                            } ?>
-                            <p><?php the_title(); ?></p>
-                        </a>
-                    </li>
-                <?php } ?>
-            </ul>
-        </section>
+<section id="toy-grid">
+<ul>
+<?php while(have_posts()){ the_post();
+?>
+<li>
+<a href="<?php the_permalink() ?>">
+<?php if(has_post_thumbnail()){
+the_post_thumbnail('toy-grid');
+} ?>
+<p><?php the_title(); ?></p>
+</a>
+</li>
+<?php } ?>
+</ul>
+</section>
 
-        <section id="pagination">
-            <a><span>1</span></a>
-            <a><span>2</span></a>
-            <a><span>3</span></a>
-            <a><span>4</span></a>
-            <a><span>Next &#9658;</span></a>
-        </section>
+<section id="pagination">
+<?php echo paginate_links(array(
+'show_all' => true,
+'before_page_number' => '<span>',
+'after_page_number' => '</span>',
+'prev_text' => '<span>&#9668; Prev</span>',
+'next_text' => '<span>Next &#9658;</span>'
+)); ?>
+</section>
+
+</div>
 
     <?php } wp_reset_query(); ?>
 

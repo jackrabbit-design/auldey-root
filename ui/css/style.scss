@@ -362,7 +362,7 @@
             }
             &.small { width:267px; height:230px; float:right; clear:right; margin-bottom:17px;
                 img { width:267px; height:166px; display:block; transform-origin:center center; }
-                .light { bottom:-56px; margin-left:-150px; width:300px; height:150px; background:#1173B8; transform:rotate(-10deg); }
+                .light { bottom:-56px; margin-left:-145px; width:300px; height:150px; background:#1173B8; transform:rotate(-10deg); }
                 .dark { bottom:-60px; margin-left:-150px; width:300px; height:75px; background:#0D66A4; transform:rotate(9deg); }
                 .text { padding:0 20px 20px; height:80px; text-align:right; }
                 h4 { font:500 12px/1 Nexa; color:#64C7ED; text-transform: uppercase; transition:color 0.2s; }
@@ -684,8 +684,12 @@
     }
 
     #pagination { text-align:center; padding:52px 0; max-width:990px; border-bottom:1px solid #CFCFCF; margin:0 auto;
-        a { padding:11px 22px 14px; background:#00A3E1; transform:skew(-19deg); display: inline-block; box-shadow:0 4px 7px rgba(0,0,0,0.3); margin:0;
+        a, span.current { padding:11px 22px 14px; background:#00A3E1; transform:skew(-19deg); display: inline-block; box-shadow:0 4px 7px rgba(0,0,0,0.3); margin:0;
             span { display: inline-block;transform:skew(19deg); font:18px/23px Nexa; text-transform:uppercase; font-weight:600; color:$white;  }
+            &:hover { background:#D7262C; }
+        }
+        span.current { background:#B3B3B3;
+            &:hover { background:#B3B3B3; }
         }
     }
 

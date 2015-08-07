@@ -168,14 +168,14 @@
         </div>
         <div class="social">
             <p><?php the_field('instagram_callout'); ?></p>
-            <a href="<?php the_field('facebook_url','options'); ?>" class="external follow red">
+                <a href="//instagram.com/<?php the_field('instagram_username','options'); ?>" class="external follow red">
                 <div class="social-instagram"></div>
             <span><?php the_field('instagram_label'); ?></span>
             </a>
         </div>
         <div class="social">
             <p><?php the_field('facebook_callout'); ?></p>
-            <a href="//instagram.com/<?php the_field('instagram_username','options'); ?>" class="external follow blue">
+                <a href="<?php the_field('facebook_url','options'); ?>" class="external follow blue">
                 <div class="social-facebook"></div>
                 <span><?php the_field('facebook_label'); ?></span>
             </a>

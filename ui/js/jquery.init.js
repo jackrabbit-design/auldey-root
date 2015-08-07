@@ -165,12 +165,26 @@ function _brandSort(){
 
     $('#manual-types ul li').on('click',function(){
         window.location.href = $(this).data('href');
-    })
+    });
+}
+
+function _toyPage(){
+    $(document).on('click','#pagination a',function(e){
+
+        e.preventDefault();
+        var link = $(this).attr('href');
+
+        var $content = '.everything';
+
+        $.post(link+'', function(data){
+            var $new_content = $($content,data);
+            console.log($new_content);
+            //$(content).html($new_content); // Append the new content
+        },'html');
+    });
 }
 
 jQuery(function(){
-
-    console.log(window.location.hostname);
 
     _brandGrid();
     _banner();
@@ -185,5 +199,6 @@ jQuery(function(){
     _subNav();
     _ageCheck();
     _brandSort();
+    _toyPage();
 
 });
