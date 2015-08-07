@@ -29,21 +29,24 @@
             <img src="<?php echo $u ?>" alt="<?php the_title(); ?>" style="bottom:-<?php echo $h ?>px; margin-left:-<?php echo $w ?>px;" />
         <?php } ?>
     </section>
+    <?php if($callout = get_field('callout_title') || $text = get_field('callout_text')){ ?>
+        <section class="callout">
+            <h3><?php echo $callout ?></h3>
+            <?php echo $text ?> ?>
+        </section>
+    <?php } ?>
 
-    <section class="callout">
-        <h3><?php the_field('callout_title'); ?></h3>
-        <?php the_field('callout_text'); ?>
-    </section>
+    <?php $side = get_field('sidebar_image') ?>
 
     <section class="main clearfix">
-        <article class="content-main">
+        <article class="content-main <?php if(!$side) echo 'full-width'; ?>">
             <?php the_content(); ?>
         </article>
-        <aside class="sidebar">
-            <?php if($side = get_field('sidebar_image')){ ?>
+        <?php if($side){ ?>
+            <aside class="sidebar">
                 <img src="<?php echo $side['sizes']['side-img'] ?>" alt="<?php the_title(); ?>" />
-            <?php } ?>
-        </aside>
+            </aside>
+        <?php } ?>
     </section>
 
 <?php get_footer(); ?>

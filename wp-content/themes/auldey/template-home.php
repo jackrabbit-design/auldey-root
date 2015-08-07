@@ -24,12 +24,13 @@
             $bot = $logo['brand-grid-logo-height'] / 2;
             $gif = get_sub_field('brand_gif');
             $gif = $gif['url'];
+            $url = get_sub_field('brand_link');
             ?>
-            <div class="brand">
+            <a href="<?php echo $url ?>" class="brand">
                 <img class="square static" src="<?php echo $sq; ?>" alt="<?php the_sub_field('brand_name'); ?>" />
                 <img class="square anim" src="<?php echo $gif; ?>" alt="<?php the_sub_field('brand_name'); ?>" />
                 <img src="<?php echo $logo['brand-grid-logo'] ?>" alt="<?php the_sub_field('brand_name'); ?>" class="logo" style="margin-left:-<?php echo $mar; ?>px; bottom:-<?php echo $bot; ?>px;" />
-            </div>
+            </a>
         <?php } ?>
     </div>
 <?php } ?>
@@ -149,11 +150,12 @@
                     //echo "<pre>"; print_r($istg); echo "</pre>";
                     $blueText = $istg->caption->text;
                     preg_match('#\[(.*?)\]#', $blueText, $match);
+                    $match = ($match ? $match[1] : '#AuldeyToys');
                     ?>
                     <div class="shot s<?php echo $i++ ?>">
                         <img src="<?php echo $istg->images->low_resolution->url ?>" alt="" />
                         <div class="bottom">
-                            <span class="text"><?php echo $match[1] ?></span>
+                            <span class="text"><?php echo $match ?></span>
                             <span class="bg"></span>
                         </div>
                         <div class="content">

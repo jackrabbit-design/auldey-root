@@ -123,6 +123,8 @@ pre { font-size: 12px; text-align: left; line-height: 1.5; }
 /* ========================================================================= */
 html, body { font-family: ProximaNova, Helvetica, Arial, sans-serif; }
 
+a { color: #00A3E1; }
+
 /* != SELECTION STYLES (Leaving these blank will show no indication of text selection) ===== */
 /* ::selection         { background: #aaa; color: $white; } ::-moz-selection    { background: #aaa; color: $white; } ::-webkit-selection { background: #aaa; color: $white; }
 */
@@ -374,6 +376,7 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 
 .main { max-width: 1020px; padding: 0 20px; margin: 60px auto; }
 .main .content-main { width: 55.10204%; float: left; }
+.main .content-main.full-width { width: 100%; float: none; }
 .main .sidebar { width: 41.83673%; float: right; }
 .main .sidebar img { max-width: 100%; }
 
