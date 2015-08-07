@@ -694,8 +694,8 @@
         }
     }
 
-    #manual-search { max-width:930px; margin:0 auto; display:none;
-        label { font:700 15px/1 Nexa; text-transform:uppercase; color:$red; display:block; margin-bottom:9px; }
+    #manual-search { max-width:930px; margin:0 auto; display:none; text-align:center;
+        label { font:700 15px/1 Nexa; text-transform:uppercase; color:$red; display:block; margin-bottom:9px; text-align:left; }
         input[type=text] { border:1px solid #CFCFCF; height:50px; font:300 18px/50px ProximaNova; color:#737373; padding:0 16px; width:100%; display:block; }
         div { display:inline-block; width:percentage(356/930); vertical-align: top; margin-right:percentage(12/930); }
         button.submit { transform:none; vertical-align: bottom; height:50px; line-height:50px; padding:0; width:percentage(180/930); }

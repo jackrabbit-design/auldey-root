@@ -17,73 +17,99 @@
     <p><?php the_field('header_text'); ?></p>
 </section>
 
-<section id="manual-types">
+<section id="manual-types" <?php echo (isset($_GET['search']) ? 'class="s"' : ''); ?>>
     <ul>
-        <li><span>Search</span></li>
-        <li class="active"><span>Browse By Brands</span></li>
+        <li data-href="<?php the_permalink() ?>" class="<?php echo (isset($_GET['search']) ? '' : 'active'); ?>"><span>Browse By Brands</span></li>
+        <li data-href="<?php the_permalink() ?>?search" class="<?php echo (isset($_GET['search']) ? 'active' : ''); ?>"><span>Search</span></li>
     </ul>
 </section>
 
-
-<section id="manual-brands">
-    <a href="#" class=" active"><img src="ui/images/logo_waveracers.png" alt="" /></a>
-    <a href="#" class=""><img src="ui/images/logo_superwings.png" alt="" /></a>
-    <a href="#" class=""><img src="ui/images/logo_racetin.png" alt="" /></a>
-    <a href="#" class=""><img src="ui/images/logo_skyrover.png" alt="" /></a>
-
-</section>
-
-<form id="manual-search">
+<form id="manual-search" method="get" action="<?php the_permalink() ?>">
     <div>
         <label for="search">Search</label>
-        <input placeholder="Search by keyword or model#" name="search" id="search" type="text" />
-    </div>
-    <div>
-        <label for="brands">Filter by Brands</label>
-        <span class="select-menu">
-            <select name="brands" id="brands">
-                <option value="">Brand 1</option>
-                <option value="">Brand 2</option>
-                <option value="">Brand 3</option>
-                <option value="">Brand 4</option>
-                <option value="">Brand 5</option>
-            </select>
-        </span>
+        <input placeholder="Search by keyword or model #" name="search" id="search" type="text" />
     </div>
     <button class="submit" type="submit">Find it</button>
 </form>
 
+<section id="manual-brands">
+    <a href="#" data-brand="<?php
+        $term = get_term_by('id', 11, 'manual-brand');
+        echo $term->slug
+        ?>"
+        data-name="<?php echo $term->name; ?>">
+            <img src="<?php bloginfo('url') ?>/ui/images/logo_waveracers.png" alt="" />
+        </a>
+    <a href="#" data-brand="<?php
+        $term = get_term_by('id', 14, 'manual-brand');
+        echo $term->slug
+        ?>"
+        data-name="<?php echo $term->name; ?>">
+            <img src="<?php bloginfo('url') ?>/ui/images/logo_superwings.png" alt="" />
+        </a>
+    <a href="#" data-brand="<?php
+        $term = get_term_by('id', 10, 'manual-brand');
+        echo $term->slug
+        ?>"
+        data-name="<?php echo $term->name; ?>">
+            <img src="<?php bloginfo('url') ?>/ui/images/logo_racetin.png" alt="" />
+        </a>
+    <a href="#" data-brand="<?php
+        $term = get_term_by('id', 9, 'manual-brand');
+        echo $term->slug
+        ?>"
+        data-name="<?php echo $term->name; ?>">
+            <img src="<?php bloginfo('url') ?>/ui/images/logo_skyrover.png" alt="" />
+        </a>
+</section>
+
 <?php
 $args = array(
     'post_type' => 'manual',
-    'posts_per_page' => 6
+    'posts_per_page' => -1
 );
 
+if(isset($_GET['search']) && !empty($_GET['search'])){
+    $args = array_merge($args,array('s' => $_GET['search']));
+}
+
 query_posts($args);
-if(have_posts()){
 ?>
 
 <section id="manual-results">
-    <div class="content-main">
-        <h3>Wave Racers User Manuals</h3>
-    </div>
-    <div class="content-main">
-        <h4>1 result for</h4>
-        <h3>TTYW85819</h3>
-    </div>
+    <?php if(isset($_GET['search']) && !empty($_GET['search'])){ ?>
+        <div class="content-main">
+            <h4><?php echo $ct = $wp_query->post_count; ?> result<?php echo ($ct == 1 ? '' : 's') ?> for</h4>
+            <h3><?php echo strtoupper($_GET['search']) ?></h3>
+        </div>
+    <?php }else{ ?>
+        <div class="content-main">
+            <h3 class="sort-text">
+                <span>All</span> User Manuals
+            </h3>
+        </div>
+    <? } ?>
     <ul id="results">
-        <?php while(have_posts()){ the_post(); ?>
-            <li><a href="<?php the_field('manual_download') ?>" download class="clearfix">
-                <?php if(has_post_thumbnail(get_field('associated_toy'))){
-                    echo get_the_post_thumbnail(get_field('associated_toy'),'manual-grid');
-                } ?>
-                <p><?php the_title() ?>
-                    <small><?php the_field('model_number'); ?></small>
-                </p>
-            </a></li>
+        <?php while(have_posts()){ the_post();
+            $cats = get_the_terms($post->ID, 'manual-brand');
+            $catSlug = '';
+            for($c = 0; $c < count($cats); $c++){
+                $catSlug .= $cats[$c]->slug;
+            }
+            ?>
+            <li data-brand="<?php echo $catSlug ?>">
+                <a href="<?php the_field('manual_download') ?>" download class="clearfix">
+                    <?php if(has_post_thumbnail(get_field('associated_toy'))){
+                        echo get_the_post_thumbnail(get_field('associated_toy'),'manual-grid');
+                    } ?>
+                    <p><?php the_title() ?>
+                        <small><?php the_field('model_number'); ?></small>
+                    </p>
+                </a>
+            </li>
         <?php } ?>
     </ul>
 </section>
-<?php } wp_reset_query(); ?>
+<?php wp_reset_query(); ?>
 
 <?php get_footer(); ?>

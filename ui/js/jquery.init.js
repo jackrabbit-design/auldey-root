@@ -111,7 +111,7 @@ function _linkCheck(){
 
 function _resultsHeight(){
     $(window).on('load resize',function(){
-        $('#results.videos li:nth-child(odd)').each(function(){
+        $('#results li:nth-of-type(odd)').each(function(){
             $(this).css('height','auto').next().css('height','auto');
             var h1 = $(this).height();
             var h2 = $(this).next().height();

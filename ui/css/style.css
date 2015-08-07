@@ -494,8 +494,8 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 #manual-types ul li.active { background: #00A3E1; }
 #manual-types ul li span { display: inline-block; -webkit-transform: skew(19deg); -ms-transform: skew(19deg); transform: skew(19deg); font: 13px/15px Nexa; text-transform: uppercase; font-weight: 800; color: #fff; }
 
-#manual-search { max-width: 930px; margin: 0 auto; display: none; }
-#manual-search label { font: 700 15px/1 Nexa; text-transform: uppercase; color: #D7262C; display: block; margin-bottom: 9px; }
+#manual-search { max-width: 930px; margin: 0 auto; display: none; text-align: center; }
+#manual-search label { font: 700 15px/1 Nexa; text-transform: uppercase; color: #D7262C; display: block; margin-bottom: 9px; text-align: left; }
 #manual-search input[type=text] { border: 1px solid #CFCFCF; height: 50px; font: 300 18px/50px ProximaNova; color: #737373; padding: 0 16px; width: 100%; display: block; }
 #manual-search div { display: inline-block; width: 38.27957%; vertical-align: top; margin-right: 1.29032%; }
 #manual-search button.submit { -webkit-transform: none; -ms-transform: none; transform: none; vertical-align: bottom; height: 50px; line-height: 50px; padding: 0; width: 19.35484%; }
