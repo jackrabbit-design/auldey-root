@@ -88,35 +88,34 @@
 
     if(have_posts()){
     ?>
-<div class="everything">
+    <div id="everything">
 
-<section id="toy-grid">
-<ul>
-<?php while(have_posts()){ the_post();
-?>
-<li>
-<a href="<?php the_permalink() ?>">
-<?php if(has_post_thumbnail()){
-the_post_thumbnail('toy-grid');
-} ?>
-<p><?php the_title(); ?></p>
-</a>
-</li>
-<?php } ?>
-</ul>
-</section>
+        <section id="toy-grid">
+            <ul>
+                <?php while(have_posts()){ the_post(); ?>
+                    <li>
+                        <a href="<?php the_permalink() ?>">
+                            <?php if(has_post_thumbnail()){
+                                the_post_thumbnail('toy-grid');
+                            } ?>
+                            <p><?php the_title(); ?></p>
+                        </a>
+                    </li>
+                <?php } ?>
+            </ul>
+        </section>
 
-<section id="pagination">
-<?php echo paginate_links(array(
-'show_all' => true,
-'before_page_number' => '<span>',
-'after_page_number' => '</span>',
-'prev_text' => '<span>&#9668; Prev</span>',
-'next_text' => '<span>Next &#9658;</span>'
-)); ?>
-</section>
+        <section id="pagination">
+            <?php echo paginate_links(array(
+                'show_all' => true,
+                'before_page_number' => '<span>',
+                'after_page_number' => '</span>',
+                'prev_text' => '<span>&#9668; Prev</span>',
+                'next_text' => '<span>Next &#9658;</span>'
+            )); ?>
+        </section>
 
-</div>
+    </div>
 
     <?php } wp_reset_query(); ?>
 

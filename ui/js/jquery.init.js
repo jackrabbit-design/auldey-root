@@ -170,16 +170,13 @@ function _brandSort(){
 
 function _toyPage(){
     $(document).on('click','#pagination a',function(e){
-
         e.preventDefault();
         var link = $(this).attr('href');
-
-        var $content = '.everything';
-
+        var $content = '#everything';
         $.post(link+'', function(data){
-            var $new_content = $($content,data);
-            console.log($new_content);
-            //$(content).html($new_content); // Append the new content
+            var elements = $('<div>').append(data);
+            var $new_content = elements.find($content).html();
+            $($content).html($new_content); // Append the new content
         },'html');
     });
 }
