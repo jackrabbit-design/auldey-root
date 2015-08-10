@@ -449,6 +449,7 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 #contact li.sm { width: 48%; }
 #contact li.sm + li.sm { margin-left: 4%; }
 #contact .gform_footer { text-align: center; }
+#contact .gform_confirmation_message { font-size: 19px; text-align: center; color: #737373; }
 
 #brand-slider { height: 565px; background: url("../images/bg-brand.jpg") no-repeat center top; padding: 45px 0; position: relative; }
 #brand-slider #brand-slides { width: 936px; height: 435px; box-shadow: 0 15px 14px rgba(0, 0, 0, 0.5); border: 6px solid #fff; margin: 0 auto; box-sizing: content-box; }

@@ -29,10 +29,10 @@
             <img src="<?php echo $u ?>" alt="<?php the_title(); ?>" style="bottom:-<?php echo $h ?>px; margin-left:-<?php echo $w ?>px;" />
         <?php } ?>
     </section>
-    <?php if($callout = get_field('callout_title') || $text = get_field('callout_text')){ ?>
+    <?php if(get_field('callout_title') || get_field('callout_text')){ ?>
         <section class="callout">
-            <h3><?php echo $callout ?></h3>
-            <?php echo $text ?> ?>
+            <h3><?php the_field('callout_title') ?></h3>
+            <?php the_field('callout_text') ?>
         </section>
     <?php } ?>
 

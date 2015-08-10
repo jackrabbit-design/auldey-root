@@ -12,7 +12,7 @@
 </section>
 
 <section id="contact">
-    <?php echo do_shortcode('[gravityform id="1" title="false" description="false"]'); ?>
+    <?php echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]'); ?>
 </section>
 
 <section id="denied" class="content-main">

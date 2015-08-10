@@ -159,7 +159,7 @@
                             <span class="bg"></span>
                         </div>
                         <div class="content">
-                            <div class="text"><?php echo str_replace($match,'',$blueText) ?></div>
+                            <div class="text"><?php echo str_replace('['.$match.']','',$blueText) ?></div>
                         </div>
                     </div>
                     <?
