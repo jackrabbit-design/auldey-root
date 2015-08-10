@@ -143,6 +143,14 @@
         $args = array_merge($args, $default);
     }
 
+    if(isset($_GET['space'])){
+        $space = array(
+            'tax_query' => array(array(
+
+            ))
+        )
+    }
+
     query_posts($args);
 
     if(have_posts()){
