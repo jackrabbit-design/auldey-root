@@ -478,8 +478,18 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 
 #sort { background: url("../images/bg-innovative.jpg") top center; text-align: center; margin-bottom: 72px; }
 #sort h3 { padding: 52px 0 20px; font: 700 22px/25px Nexa; color: #fff; text-transform: uppercase; display: inline-block; }
-#sort ul li { padding: 15px 50px 18px; background: #00A3E1; -webkit-transform: skew(-19deg); -ms-transform: skew(-19deg); transform: skew(-19deg); display: inline-block; box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3); margin: 0 2px; position: relative; top: 20px; }
+#sort ul li { padding: 15px 50px 18px; background: #B3B3B3; -webkit-transform: skew(-19deg); -ms-transform: skew(-19deg); transform: skew(-19deg); display: inline-block; box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3); margin: 0 2px; position: relative; top: 20px; cursor: pointer; }
 #sort ul li span { display: inline-block; -webkit-transform: skew(19deg); -ms-transform: skew(19deg); transform: skew(19deg); font: 13px/15px Nexa; text-transform: uppercase; font-weight: 800; color: #fff; }
+#sort ul li.data-1, #sort ul li.data-2 { background: #00A3E1; }
+
+#everything { opacity: 1; -webkit-transition: opacity 0.2s; transition: opacity 0.2s; }
+#everything.loading { opacity: 0.2; pointer-events: none; }
+
+#spaces { text-align: center; }
+#spaces label { font-size: 19px; color: #737373; }
+#spaces label span { display: inline-block; width: 20px; height: 20px; border: 2px solid #CFCFCF; box-shadow: inset 0 0 0 2px #fff; -webkit-transition: background 0.15s; transition: background 0.15s; margin: 0 5px -3px 20px; }
+#spaces input[type="checkbox"] { display: none; }
+#spaces input[type="checkbox"]:checked + label span { background: #1E66A3; }
 
 #toy-grid { max-width: 990px; margin: 0 auto; overflow: hidden; }
 #toy-grid ul { position: relative; left: -1px; font-size: 0; line-height: 0; }

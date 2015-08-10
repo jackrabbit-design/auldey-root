@@ -173,11 +173,66 @@ function _toyPage(){
         e.preventDefault();
         var link = $(this).attr('href');
         var $content = '#everything';
+        $($content).addClass('loading');
         $.post(link+'', function(data){
-            var elements = $('<div>').append(data);
-            var $new_content = elements.find($content).html();
+            var $new_content = $('<div>').append(data).find($content).html();
             $($content).html($new_content); // Append the new content
-        },'html');
+        },'html').done(function(){
+            $($content).removeClass('loading');
+        });
+    });
+}
+
+function _toySort(){
+    $('#sort ul li').on('click',function(){
+        if($(this).hasClass('data-1') || $(this).hasClass('data-2')){
+            if($(this).hasClass('data-1')){
+                var t = $(this).data('2t');
+                $(this).removeClass('data-1').addClass('data-2').children('span').text(t);
+                var $target = $(this).data('2');
+            }else{
+                var t = $(this).data('1t');
+                $(this).removeClass('data-2').addClass('data-1').children('span').text(t);
+                var $target = $(this).data('1');
+            }
+        }else{
+            var t = $(this).data('1t');
+            $(this).addClass('data-1').siblings('li').removeClass();
+            $('span', this).text(t);
+            var $target = $(this).data('1');
+        }
+        $(this).siblings('li').each(function(){
+            var d = $(this).data('d');
+            $('span', this).text(d);
+        });
+        var $content = '#everything';
+        $($content).addClass('loading');
+        $('#spaces').data('url', $target);
+        $.post($target+'', function(data){
+            var $new_content = $('<div>').append(data).find($content).html();
+            $($content).html($new_content); // Append the new content
+        },'html').done(function(){
+            $($content).removeClass('loading');
+        });
+    });
+}
+
+function _spaces(){
+    $('#spaces input').on('change',function(){
+        var $target = $('#spaces').data('url');
+        var $checks = '';
+        $('#spaces input').each(function(){
+            if($(this).is(':checked')){
+                $checks += $(this).val() + ',';
+            }
+        });
+        $checks = $checks.slice(0,-1);
+        if($target.indexOf("?") > -1){
+            var $link = $target += '&space=' + $checks;
+        }else{
+            var $link = $target += '?space=' + $checks;
+        }
+        console.log($link);
     });
 }
 
@@ -197,5 +252,7 @@ jQuery(function(){
     _ageCheck();
     _brandSort();
     _toyPage();
+    _toySort();
+    _spaces();
 
 });

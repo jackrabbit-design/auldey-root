@@ -668,8 +668,24 @@
     #sort { background:url('../images/bg-innovative.jpg') top center; text-align:center; margin-bottom:72px;
         h3 { padding:52px 0 20px; font:700 22px/25px Nexa; color:$white; text-transform:uppercase; display:inline-block;}
         ul {
-            li { padding:15px 50px 18px; background:#00A3E1; transform:skew(-19deg); display: inline-block; box-shadow:0 4px 7px rgba(0,0,0,0.3); margin:0 2px; position:relative; top:20px;
+            li { padding:15px 50px 18px; background:#B3B3B3; transform:skew(-19deg); display: inline-block; box-shadow:0 4px 7px rgba(0,0,0,0.3); margin:0 2px; position:relative; top:20px; cursor:pointer;
                 span { display: inline-block;transform:skew(19deg); font:13px/15px Nexa; text-transform:uppercase; font-weight:800; color:$white; }
+                &.data-1, &.data-2 { background:#00A3E1; }
+            }
+        }
+    }
+
+    #everything { opacity:1; transition:opacity 0.2s;
+        &.loading { opacity:0.2; pointer-events:none; }
+    }
+
+    #spaces { text-align:center;
+        label { font-size:19px; color:#737373;
+            span { display: inline-block; width:20px; height:20px; border:2px solid #CFCFCF; box-shadow:inset 0 0 0 2px #fff; transition:background 0.15s; margin:0 5px -3px 20px; }
+        }
+        input[type="checkbox"] { display:none;
+            &:checked + label {
+                span { background:#1E66A3; }
             }
         }
     }

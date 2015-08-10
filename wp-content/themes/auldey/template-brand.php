@@ -63,17 +63,49 @@
     <section id="sort">
         <h3>SORT WAVE RACER TOYS</h3>
         <ul>
-            <li><span>Newest</span></li>
-            <li><span>Price</span></li>
-            <li><span>A-Z</span></li>
-            <li><span>Indoor</span></li>
-            <li><span>Outdoor</span></li>
+            <li class="active data-1"
+                data-1="<?php the_permalink() ?>?release=DESC"
+                data-1t = "Newest"
+                data-2="<?php the_permalink() ?>?release=ASC"
+                data-2t = "Oldest"
+                data-d = "Release"
+                >
+                <span>Newest</span></li>
+            <li class=""
+                data-1="<?php the_permalink() ?>?price=ASC"
+                data-1t = "$ - $$$"
+                data-2="<?php the_permalink() ?>?price=DESC"
+                data-2t = "$$$ - $"
+                data-d = "Price"
+                >
+                <span>Price</span></li>
+            <li class=""
+                data-1="<?php the_permalink() ?>?alpha=ASC"
+                data-1t = "A - Z"
+                data-2="<?php the_permalink() ?>?alpha=DESC"
+                data-2t = "Z - A"
+                data-d = "Name"
+                >
+                <span>Name</span></li>
         </ul>
     </section>
 
     <?php
 
     $brand = get_field('brand_to_show');
+
+    if($brand->term_id == 8){ ?>
+
+        <div id="spaces" data-url="<?php the_permalink(); ?>">
+            <input type="checkbox" name="space" id="indoor" value="indoor" checked />
+            <label for="indoor"><span></span>Indoor</label>
+
+            <input type="checkbox" name="space" id="outdoor" value="outdoor" checked />
+            <label for="outdoor"><span></span>Outdoor</label>
+        </div>
+
+    <? }
+
     $brand = $brand->slug;
 
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -83,6 +115,33 @@
         'brand' => $brand,
         'paged' => $paged
     );
+
+    if(isset($_GET['release'])){
+        $release = array(
+            'orderby' => 'date',
+            'order' => $_GET['release']
+        );
+        $args = array_merge($args, $release);
+    }elseif(isset($_GET['price'])){
+        $price = array(
+            'orderby' => 'meta_value_num',
+            'meta_key' => 'price',
+            'order' => $_GET['price']
+        );
+        $args = array_merge($args, $price);
+    }elseif(isset($_GET['alpha'])){
+        $name = array(
+            'orderby' => 'name',
+            'order' => $_GET['alpha']
+        );
+        $args = array_merge($args, $name);
+    }else{
+        $default = array(
+            'orderby' => 'date',
+            'order' => 'DESC'
+        );
+        $args = array_merge($args, $default);
+    }
 
     query_posts($args);
 
