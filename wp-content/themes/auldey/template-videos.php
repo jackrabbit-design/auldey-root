@@ -144,6 +144,11 @@ if(have_posts()){
         </ul>
     </section>
 
+<?php }else{ ?>
+    <div id="manual-results" class="content-main center">
+        <h3 class="sort-text">Results for "<?php echo strtoupper($_GET['search']) ?>"</h3>
+        <p><br/>Sorry, no videos could be found.</p>
+    </div>
 <?php } ?>
 
 <?php get_footer(); ?>

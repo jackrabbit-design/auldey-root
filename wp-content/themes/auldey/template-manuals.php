@@ -73,8 +73,7 @@ if(isset($_GET['search']) && !empty($_GET['search'])){
     $args = array_merge($args,array('s' => $_GET['search']));
 }
 
-query_posts($args);
-?>
+query_posts($args); ?>
 
 <section id="manual-results">
     <?php if(isset($_GET['search']) && !empty($_GET['search'])){ ?>
@@ -89,27 +88,33 @@ query_posts($args);
             </h3>
         </div>
     <? } ?>
-    <ul id="results">
-        <?php while(have_posts()){ the_post();
-            $cats = get_the_terms($post->ID, 'manual-brand');
-            $catSlug = '';
-            for($c = 0; $c < count($cats); $c++){
-                $catSlug .= $cats[$c]->slug;
-            }
-            ?>
-            <li data-brand="<?php echo $catSlug ?>">
-                <a href="<?php the_field('manual_download') ?>" download class="clearfix">
-                    <?php if(has_post_thumbnail(get_field('associated_toy'))){
-                        echo get_the_post_thumbnail(get_field('associated_toy'),'manual-grid');
-                    } ?>
-                    <p><?php the_title() ?>
-                        <small><?php the_field('model_number'); ?></small>
-                    </p>
-                </a>
-            </li>
-        <?php } ?>
-    </ul>
+
+    <?php if(have_posts()){ ?>
+
+
+        <ul id="results">
+            <?php while(have_posts()){ the_post();
+                $cats = get_the_terms($post->ID, 'manual-brand');
+                $catSlug = '';
+                for($c = 0; $c < count($cats); $c++){
+                    $catSlug .= $cats[$c]->slug;
+                }
+                ?>
+                <li data-brand="<?php echo $catSlug ?>">
+                    <a href="<?php the_field('manual_download') ?>" download class="clearfix">
+                        <?php if(has_post_thumbnail(get_field('associated_toy'))){
+                            echo get_the_post_thumbnail(get_field('associated_toy'),'manual-grid');
+                        } ?>
+                        <p><?php the_title() ?>
+                            <small><?php the_field('model_number'); ?></small>
+                        </p>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+
+<?php } wp_reset_query(); ?>
+
 </section>
-<?php wp_reset_query(); ?>
 
 <?php get_footer(); ?>
