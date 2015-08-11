@@ -112,13 +112,15 @@ function _linkCheck(){
 function _resultsHeight(){
     $(window).on('load resize',function(){
         $('#results li:nth-of-type(odd)').each(function(){
-            $(this).css('height','auto').next().css('height','auto');
+            $(this).css('height','auto').children('a').css('height','auto');
+            $(this).next().css('height','auto').children('a').css('height','auto');
             var h1 = $(this).height();
             var h2 = $(this).next().height();
+            var p = $(this).children('a').css('padding-top').substr(0,2) * 2;
             if(h1 < h2){
-                $(this).height(h2);
+                $(this).height(h2).children('a').height(h2 - p);
             }else{
-                $(this).next().height(h1);
+                $(this).next().height(h1).children('a').height(h1 - p);
             }
         });
     });
@@ -147,10 +149,11 @@ function _ageCheck(){
 }
 
 function _brandSort(){
+    $('#results li:visible:even:last').addClass('noborder')
     $('#manual-brands a').on('click',function(){
         if($(this).hasClass('active')){
             $(this).removeClass('active');
-            $('#results li').show();
+            $('#results li').show().removeClass('noborder');
             $('#manual-results .sort-text span').text("All");
         }else{
             $(this).addClass('active').siblings('.active').removeClass('active');
@@ -160,6 +163,8 @@ function _brandSort(){
             var name = $(this).data('name');
             $('#manual-results .sort-text span').text(name);
         }
+        var vis = 0;
+        $('#results li:visible:even:last').addClass('noborder')
         return false;
     });
 

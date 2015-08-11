@@ -92,7 +92,7 @@ query_posts($args); ?>
     <?php if(have_posts()){ ?>
 
 
-        <ul id="results">
+        <ul id="results" class="manuals">
             <?php while(have_posts()){ the_post();
                 $cats = get_the_terms($post->ID, 'manual-brand');
                 $catSlug = '';
