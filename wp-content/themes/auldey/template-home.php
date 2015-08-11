@@ -104,7 +104,7 @@
                                 <?php echo $text ?>
                                 <div class="buttons">
                                     <a href="<?php echo get_permalink($toyLink->ID); ?>" class="btn"><span>View Toy</span></a>
-                                    <a href="<?php echo $brandLink ?>" class="right">View Superwings</a>
+                                    <a href="<?php echo get_permalink($brandLink) ?>" class="right">View <?php echo get_the_title($brandLink) ?></a>
                                 </div>
                             </div>
                         </div>
@@ -118,6 +118,10 @@
         <span class="btn more-toys"><span>More Toys</span></a>
     </div>
 </div>
+
+<section id="more-toys-show">
+    <?php wp_nav_menu( array('theme_location' => 'main-menu', 'container' => '', 'menu_class' => '', 'menu_id' => '', 'depth' => 2, 'walker' => new jrd_walker() )); ?>
+</section>
 
 <?php
 

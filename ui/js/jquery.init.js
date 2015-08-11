@@ -125,7 +125,7 @@ function _resultsHeight(){
 }
 
 function _subNav(){
-    $('.sub-menu li.brand').each(function(){
+    $('.sub-menu li').each(function(){
         var subImg = $(this).data('image');
         var subText = $('a',this).text();
         var img = $('<img src="'+subImg+'" alt="'+subText+'" />');
@@ -218,22 +218,38 @@ function _toySort(){
 }
 
 function _spaces(){
-    $('#spaces input').on('change',function(){
-        var $target = $('#spaces').data('url');
-        var $checks = '';
-        $('#spaces input').each(function(){
-            if($(this).is(':checked')){
-                $checks += $(this).val() + ',';
-            }
+    if($('#spaces').length){
+
+        $('#sort ul li').on('click',function(){
+            $('#spaces input').each(function(){
+                $(this).prop("checked", true);
+            });
         });
-        $checks = $checks.slice(0,-1);
-        if($target.indexOf("?") > -1){
-            var $link = $target += '&space=' + $checks;
-        }else{
-            var $link = $target += '?space=' + $checks;
-        }
-        console.log($link);
-    });
+
+        $('#spaces input').on('change',function(){
+            var $target = $('#spaces').data('url');
+            var $checks = '';
+            $('#spaces input').each(function(){
+                if($(this).is(':checked')){
+                    $checks += $(this).val() + ',';
+                }
+            });
+            $checks = $checks.slice(0,-1);
+            if($target.indexOf("?") > -1){
+                var $link = $target += '&space=' + $checks;
+            }else{
+                var $link = $target += '?space=' + $checks;
+            }
+            var $content = '#everything';
+            $($content).addClass('loading');
+            $.post($link+'', function(data){
+                var $new_content = $('<div>').append(data).find($content).html();
+                $($content).html($new_content); // Append the new content
+            },'html').done(function(){
+                $($content).removeClass('loading');
+            });
+        });
+    }
 }
 
 jQuery(function(){
@@ -254,5 +270,22 @@ jQuery(function(){
     _toyPage();
     _toySort();
     _spaces();
+
+    $('a.btn[href=#toy-grid]').on('click',function(e){
+        e.preventDefault;
+        $('html, body').animate({
+            scrollTop: $("#toy-grid").offset().top - 200
+        }, 1000);
+        return false;
+    });
+
+    $('#toys .more-toys').on('click',function(){
+        if($('span',this).text() == 'More Toys'){
+            $('span',this).text('Hide Toys');
+        }else{
+            $('span',this).text('More Toys');
+        }
+        $('#more-toys-show').toggleClass('show');
+    });
 
 });

@@ -9,6 +9,9 @@
             <?php } if($fb = get_field('facebook_url','options')){ ?>
                 <a href="<?php echo $fb ?>" target="_blank" class="social-facebook external"></a>
             <?php } ?>
+            <p class="jrd">
+                <a href="http://www.jumpingjackrabbit.com" target="_blank">Website Design</a> by <a href="http://www.jumpingjackrabbit.com" target="_blank">Jackrabbit</a>
+            </p>
         </div>
     </footer>
 
