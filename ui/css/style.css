@@ -376,6 +376,7 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 #title h3 { font: 700 31px/1 Nexa; color: #1E66A3; margin-bottom: 18px; }
 #title p { font: 300 19px/26px ProximaNova; color: #737373; max-width: 720px; padding: 0 20px; margin: 0 auto; }
 #title p a { color: #00A3E1; }
+#title.fourohfour { padding: 65px 0 65px 190px; }
 
 .callout { max-width: 980px; margin: 0 auto; text-align: center; padding: 40px 11.83673%; border-bottom: 2px solid #E3E3E3; }
 .callout h3 { color: #1E66A3; font: 700 31px/1 Nexa; margin-bottom: 21px; text-transform: uppercase; }
@@ -383,11 +384,18 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 .callout.manual { border-bottom: none; }
 .callout.manual h3 { text-transform: none; }
 
-.main { max-width: 1020px; padding: 0 20px; margin: 60px auto; }
+.main { max-width: 1020px; padding: 0 20px; margin: 60px auto; position: relative; }
 .main .content-main { width: 55.10204%; float: left; }
 .main .content-main.full-width { width: 100%; float: none; }
 .main .sidebar { width: 41.83673%; float: right; }
 .main .sidebar img { max-width: 100%; }
+.main .img-404 { position: absolute; top: -220px; left: -110px; }
+.main .search-404 { padding-left: 190px; text-align: center; max-width: 550px; margin: 0 auto; box-sizing: content-box; min-height: 190px; position: relative; z-index: 5; }
+.main .search-404 label { width: 100%; display: block; text-align: left; font: 700 15px/1 Nexa; color: #D7262C; text-transform: uppercase; margin-bottom: 9px; }
+.main .search-404 input { float: left; width: 64.90909%; height: 50px; line-height: 50px; border: 1px solid #CFCFCF; font-size: 18px; color: #737373; padding: 0 16px; }
+.main .search-404 button { -webkit-transform: skew(0deg); -ms-transform: skew(0deg); transform: skew(0deg); float: right; width: 32.72727%; padding: 18px 0; }
+
+hr { max-width: 990px; border: none; border-bottom: 1px solid #CFCFCF; margin: 0 auto; }
 
 #faqs { max-width: 980px; margin: 0 auto; }
 #faqs .faq { border-bottom: 1px solid #CFCFCF; }
@@ -885,7 +893,10 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
   #faqs .faq .q { font-size: 20px; padding: 20px 0 20px 40px; }
   #faqs .faq .q:before { font-size: 35px; left: 12px; top: 12px; }
   #faqs .faq .a { padding: 0 0 8px 40px; }
-  #faqs .faq .a p { font-size: 16px; line-height: 25px; } }
+  #faqs .faq .a p { font-size: 16px; line-height: 25px; }
+  #title.fourohfour { padding-left: 0; }
+  .main .img-404 { position: static; display: block; max-width: 80%; margin: 0 auto 20px; }
+  .main .search-404 { padding-left: 0; min-height: 0; } }
 @media screen and (max-width: 768px) { #header { z-index: 20; }
   #nav-icon { width: 62px; height: 50px; display: block; position: absolute; top: 0; right: 0; }
   #nav-icon span, #nav-icon span:before, #nav-icon span:after { width: 22px; height: 3px; display: block; background: #fff; position: absolute; right: 20px; content: ''; }

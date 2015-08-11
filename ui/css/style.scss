@@ -521,6 +521,7 @@
         p { font:300 19px/26px ProximaNova; color:#737373; max-width:720px; padding:0 20px; margin:0 auto;
             a { color:#00A3E1; }
         }
+        &.fourohfour { padding:65px 0 65px 190px; }
     }
 
     .callout { max-width:980px; margin:0 auto; text-align:center; padding:40px percentage(116/980); border-bottom:2px solid #E3E3E3;
@@ -531,14 +532,22 @@
         }
     }
 
-    .main { max-width:1020px; padding:0 20px; margin:60px auto;
+    .main { max-width:1020px; padding:0 20px; margin:60px auto; position: relative;
         .content-main { width:percentage(540/980); float:left;
             &.full-width { width:100%; float:none; }
         }
         .sidebar { width:percentage(410/980); float:right;
             img { max-width:100%; }
         }
+        .img-404 { position:absolute; top:-220px; left:-110px; }
+        .search-404 { padding-left:190px; text-align:center; max-width:550px; margin:0 auto; box-sizing:content-box; min-height:190px; position: relative; z-index:5;
+            label { width:100%; display:block; text-align:left; font:700 15px/1 Nexa; color:#D7262C; text-transform: uppercase; margin-bottom:9px; }
+            input {  float:left; width:percentage(357/550); height:50px; line-height:50px; border:1px solid #CFCFCF; font-size:18px; color:#737373; padding:0 16px; }
+            button { transform:skew(0deg); float:right; width:percentage(180/550); padding:18px 0; }
+        }
     }
+
+    hr { max-width:990px; border:none; border-bottom:1px solid #CFCFCF; margin:0 auto; }
 
     #faqs { max-width:980px; margin:0 auto;
         .faq { border-bottom:1px solid #CFCFCF;
@@ -1099,6 +1108,13 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
             }
         }
     }
+    #title.fourohfour { padding-left:0; }
+    .main {
+        .img-404 { position:static; display:block; max-width:80%; margin:0 auto 20px; }
+        .search-404 { padding-left:0; min-height:0; }
+    }
+
+
 }
 
 @media screen and (max-width:768px){

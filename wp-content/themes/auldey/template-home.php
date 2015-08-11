@@ -8,8 +8,7 @@
                 $out = '<div class="slide" style="background-image:url('.$banner.')"></div>';
                 echo $out;
             };
-            if($i == 1) echo $out; // Owl doesnt work if only 1 slide.
-        } ?>
+        } if($i == 1) echo $out; ?>
     </div>
 <?php } ?>
 
