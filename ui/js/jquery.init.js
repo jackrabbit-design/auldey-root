@@ -293,4 +293,9 @@ jQuery(function(){
         $('#more-toys-show').toggleClass('show');
     });
 
+    $('a.nolink').addClass('btn').on('click',function(e){
+        e.preventDefault();
+        return false;
+    });
+
 });

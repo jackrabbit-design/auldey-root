@@ -46,6 +46,9 @@
                 case 'url':
                     $link = get_sub_field('url') . '" target="_blank';
                     break;
+                case 'no':
+                    $link = '#" class="nolink';
+                    break;
             }
             ?>
 
@@ -101,7 +104,7 @@
     if(get_posts('post_type=toy&brand='.$brand->slug)){ //hide if no posts exist
     ?>
         <section id="sort">
-            <h3>SORT WAVE RACER TOYS</h3>
+            <h3>SORT <?php echo $brand->name ?> TOYS</h3>
             <ul>
                 <li class="active data-1"
                     data-1="<?php the_permalink() ?>?release=DESC"

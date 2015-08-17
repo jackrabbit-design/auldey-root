@@ -258,6 +258,10 @@
     .btn, button[type=submit] { background: #00A3E1; box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.30); padding:15px 40px; font:800 14px/1 Nexa; color:$white; text-transform:uppercase; transform:skew(-19deg); display: inline-block; }
     .btn span, , button[type=submit] span {  transform:skew(19deg); display: inline-block; }
     .btn:hover, , button[type=submit]:hover { background:$red; transition:all 0.15s; }
+    .btn.nolink {
+        &, & span { cursor:default; }
+    }
+    .btn.nolink:hover { background:#00A3E1; cursor:default; }
 
     .btn.red { background:$red;
         &:hover { background: #00A3E1; }
@@ -301,21 +305,23 @@
         }
     }
 
-    #banner { height:565px; width:100%;
+    #banner { height:500px; width:100%;
         &.owl-carousel .owl-stage-outer { width:100%; }
-        .slide { height:565px; background-repeat:no-repeat; background-position:center center; width:100%; background-size:cover; }
+        .slide { height:500px; background-repeat:no-repeat; background-position:center center; width:100%; background-size:cover; }
         .owl-controls { position: absolute; top:50%; width:100%;
-            .owl-prev, .owl-next { width:48px; height: 48px; background: $red; box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.30); color:$white; font-size:26px; text-align:center; position: absolute; top:0; display:block; padding-top:8px; transition:top 0.15s;
-                &:hover { top:4px; }
+            .owl-prev, .owl-next { width:48px; height: 48px; background: $red; box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.30); color:$white; font-size:26px; text-align:center; position: absolute; top:0; display:block; padding-top:8px; transition:all 0.15s; }
+            .owl-prev { left:5px; padding-top:9px;
+                &:hover { left:0px; }
             }
-            .owl-prev { left:5px; }
-            .owl-next { right:5px; }
+            .owl-next { right:5px; font-size:27px;
+                &:hover { right:0px; }
+            }
         }
     }
 
     $bezier: 0.3s cubic-bezier(.15,.65,.35,1);
     #brand-grid { width:100%; margin:0 auto; height:144px; background:#E2E2E2; border-top:5px solid $white; text-align:center; font-size:0; position: relative; z-index: 10; margin-bottom:130px;
-        .brand { display: inline-block; margin:-35px 0 0; padding:0 9px 0; transition:all $bezier; vertical-align: top; position: relative;
+        .brand { display: inline-block; margin:-50px 0 0; padding:0 9px 0; transition:all $bezier; vertical-align: top; position: relative;
             .square { width:249px; display:block; transition:all $bezier; box-shadow:0 15px 14px rgba(112,112,112,0.5); border:5px solid $white; position: relative; z-index:2; }
             .square.anim { position:absolute; left:9px; top:0; z-index:8; box-shadow:none; opacity:0; }
             .no-opacity & { display:none; }
@@ -503,7 +509,9 @@
         h2 { font:700 31px/33px Nexa; color:#1E66A3; margin-bottom:30px; }
         h3 { font:600 26px/1 Nexa; color:#1E66A3; margin-bottom:22px; }
         h4 { font:700 16px/1 Nexa; color:$red; text-transform: uppercase; margin-bottom:24px; margin-top:46px; }
-        p { font:300 17px/28px ProximaNova; color:#737373; margin-bottom:15px; }
+        p { font:300 17px/28px ProximaNova; color:#737373; margin-bottom:15px;
+            + h3 { margin-top:30px; }
+        }
         ul { padding:10px 0 40px; }
         ul li { position: relative; padding-left: 20px; font:500 16px/17px ProximaNova; color:#737373; margin-bottom:12px; }
         ul li:before { content: ''; position: absolute; left: 0; display:block; width:6px; height:6px; background:#D8D8D8; top:6px; }
@@ -716,10 +724,10 @@
         }
     }
 
-    #toy-grid { max-width:990px; margin:0 auto;overflow:hidden;
+    #toy-grid { max-width:990px; margin:0 auto;overflow:hidden; padding-bottom:1px;
         ul { position:relative; left:-1px; font-size:0; line-height:0;
             li { text-align:center; width:33.333%; display: inline-block; padding:percentage(27/990); border-left:1px solid #CFCFCF; border-bottom:1px solid #CFCFCF;
-                img { max-width:100%; margin-bottom:30px; }
+                img { max-width:100%; margin-bottom:30px; height:auto; }
                 p { font:700 18px/18px Nexa; color:#1E66A3; }
             }
         }
@@ -802,7 +810,7 @@
 
     .select-menu { position: relative; width: 100%; height: 50px; line-height: 50px; border: 1px solid #D3D3D3;  box-shadow: 0 4px 4px rgba(0,0,0,0.18); background: $white;vertical-align: middle; display: inline-block; overflow: hidden; }
     .select-menu:before { content: ''; position: absolute; right: 23px; top: 20px; border: 10px solid transparent; border-top: 10px solid #5DBADD; z-index: 1; }
-    .select-menu select { padding: 10px 10px 5px 10px; color: #5f5f5f; font-size: 15px; font-weight: 400; background: transparent;    width: 100%; line-height: 1; border: 0; border-radius: 0; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; text-indent: 0.01px; text-overflow: ''; position: relaive; z-index: 1;  }
+    .select-menu select { padding: 5px 10px; color: #5f5f5f; font-size: 15px; font-weight: 400; background: transparent;    width: 100%; line-height: 1; border: 0; border-radius: 0; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; text-indent: 0.01px; text-overflow: ''; position: relaive; z-index: 1;  }
     .select-menu select::-ms-expand { display: none; }
     .select-menu select:-moz-focusring { color: transparent; text-shadow: 0 0 0 #707070; }
 
@@ -1038,7 +1046,7 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
                 h3 { font-size:24px; padding-right:20%; }
                 .text { padding:0 16px 0; }
             }
-            &.small { width:24%; padding-bottom:21.3%; height:0; position: relative; overflow:hidden;
+            &.small { width:24%; padding-bottom:20.2%; height:0; position: relative; overflow:hidden;
                 img { width:110%; height:auto; position:absolute;  }
                 h3 { font-size:15px; }
                 .text { padding:0 12px 0px; }
@@ -1251,6 +1259,9 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
     .half { padding:30px 0;
         .content-main { width:100%; float:none !important; margin:20px 0; }
         img { float:none !important; display:block; margin:0 auto; width:480px; max-width:100%; }
+        .side-video { float:none !important; text-align:center; width:100%; max-width:100%;
+            .video { display:inline-block; max-width:100%; }
+        }
     }
     #pagination { padding:30px 0;
         a { padding:8px 12px 10px;

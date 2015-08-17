@@ -20,7 +20,7 @@
 
 <section id="manual-types" <?php echo (isset($_GET['search']) ? 'class="s"' : ''); ?>>
     <ul>
-        <li data-href="<?php the_permalink() ?>" class="<?php echo (isset($_GET['search']) ? '' : 'active'); ?>"><span>Browse By Brands</span></li>
+        <li data-href="<?php the_permalink() ?>" class="<?php echo (isset($_GET['search']) ? '' : 'active'); ?>"><span>Browse By Brand</span></li>
         <li data-href="<?php the_permalink() ?>?search" class="<?php echo (isset($_GET['search']) ? 'active' : ''); ?>"><span>Search</span></li>
     </ul>
 </section>
