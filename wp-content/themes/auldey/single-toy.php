@@ -108,14 +108,30 @@
 
         <?php }elseif(get_row_layout() == 'where_to_purchase'){ // !! WHERE TO PURCHASE ?>
 
-            <section id="purchase">
-                <h4>Where to purchase WaveRacer toys</h4>
-                <div class="stores">
-                    <div class="store"><img src="http://placekitten.com/185/43" alt="" /></div>
-                    <div class="store"><img src="http://placekitten.com/77/102" alt="" /></div>
-                    <div class="store"><img src="http://placekitten.com/182/50" alt="" /></div>
-                </div>
-            </section>
+            <?php $post = get_sub_field('brand_page'); setup_postdata($post); if(have_rows('stores_available')){ ?>
+                <section id="purchase">
+                    <h4><?php the_field('stores_text'); ?></h4>
+                    <div class="stores">
+                        <?php while(have_rows('stores_available')){ the_row();
+                            $logo = get_sub_field('logo');
+                            $logo = $logo['sizes']['store-logo'];
+                            $alt = get_sub_field('store_name');
+                            $link = get_sub_field('url');
+                            if($link){
+                                $el = 'a href="'.$link.'" class="store external"';
+                                $cl = 'a';
+                            }else{
+                                $el = 'div class="store"';
+                                $cl = $el;
+                            }
+                            ?>
+                            <<?php echo $el; ?>>
+                                <img src="<?php echo $logo ?>" alt="<?php echo $alt ?>" />
+                            </<?php echo $cl; ?>>
+                        <?php } ?>
+                    </div>
+                </section>
+            <?php } wp_reset_postdata(); ?>
 
         <?php }
     }

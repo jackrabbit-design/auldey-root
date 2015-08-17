@@ -102,7 +102,9 @@
                             <div class="more-holder clearfix">
                                 <?php echo $text ?>
                                 <div class="buttons">
-                                    <a href="<?php echo get_permalink($toyLink->ID); ?>" class="btn"><span>View Toy</span></a>
+                                    <?php if($toyLink){ ?>
+                                        <a href="<?php echo get_permalink($toyLink->ID); ?>" class="btn"><span>View Toy</span></a>
+                                    <?php } ?>
                                     <a href="<?php echo get_permalink($brandLink) ?>" class="right">View <?php echo get_the_title($brandLink) ?></a>
                                 </div>
                             </div>

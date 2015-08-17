@@ -11,6 +11,8 @@ function _brandGrid(){
 }
 
 function _banner(){
+    var wh = $(window).height();
+    console.log(wh);
     $('#banner').owlCarousel({
         items: 1,
         nav: true,
