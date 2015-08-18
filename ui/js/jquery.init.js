@@ -64,10 +64,17 @@ function _faq(){
 }
 
 function _gallery(){
-    $('.gallery-small span').on('click',function(){
+    var mh = 0;
+    $('.gallery-small span').each(function(){
+        if($(this).data('h') > mh){
+            mh = $(this).data('h');
+        };
+    }).on('click',function(){
         $(this).addClass('x').siblings('.x').removeClass('x');
         $('.gallery img').attr('src',$(this).data('big'));
     });
+    var gh = $('.gallery-small').outerHeight(true);
+    $('#product .gallery').height(mh + gh);
 }
 
 function _mobileNav(){
@@ -110,19 +117,17 @@ function _linkCheck(){
 }
 
 function _resultsHeight(){
-    $(window).on('load resize',function(){
-        $('#results li:nth-of-type(odd)').each(function(){
-            $(this).css('height','auto').children('a').css('height','auto');
-            $(this).next().css('height','auto').children('a').css('height','auto');
-            var h1 = $(this).height();
-            var h2 = $(this).next().height();
-            var p = $(this).children('a').css('padding-top').substr(0,2) * 2;
-            if(h1 < h2){
-                $(this).height(h2).children('a').height(h2 - p);
-            }else{
-                $(this).next().height(h1).children('a').height(h1 - p);
-            }
-        });
+    $('#results li:nth-of-type(odd)').each(function(){
+        $(this).css('height','auto').children('a').css('height','auto');
+        $(this).next().css('height','auto').children('a').css('height','auto');
+        var h1 = $(this).height();
+        var h2 = $(this).next().height();
+        var p = $(this).children('a').css('padding-top').substr(0,2) * 2;
+        if(h1 < h2){
+            $(this).height(h2).children('a').height(h2 - p);
+        }else{
+            $(this).next().height(h1).children('a').height(h1 - p);
+        }
     });
 }
 
@@ -284,7 +289,6 @@ jQuery(function(){
     _mobileNav();
     _lbVideo();
     _linkCheck();
-    _resultsHeight();
     _subNav();
     _ageCheck();
     _brandSort();
@@ -292,6 +296,11 @@ jQuery(function(){
     _toySort();
     _spaces();
     _moreToys();
+
+    $(window).on('resize',function(){
+        _moreToys();
+        _resultsHeight();
+    })
 
     $('a.btn[href=#toy-grid]').on('click',function(e){
         e.preventDefault;

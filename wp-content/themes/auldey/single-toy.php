@@ -28,15 +28,16 @@
     $gal = get_field('image_gallery');
     if(has_post_thumbnail($post->ID)){
         $thb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'gal-thb');
-        $big = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'gal-big'); ?>
+        $big = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'gal-big');
+        ?>
     <?php } ?>
     <div class="gallery">
 
         <img src="<?php echo $big[0] ?>" alt="" />
-        <div class="gallery-small">
-            <span class="x" style="background-image:url(<?php echo $thb[0] ?>)" data-big="<?php echo $big[0] ?>"></span>
+        <div class="gallery-small clearfix">
+            <span class="x" style="background-image:url(<?php echo $thb[0] ?>)" data-big="<?php echo $big[0] ?>" data-h="<?php echo $big[2] ?>"></span>
             <?php if($gal){ foreach($gal as $img){ ?>
-                <span style="background-image:url(<?php echo $img['sizes']['gal-thb'] ?>)" data-big="<?php echo $img['sizes']['gal-big'] ?>"></span>
+                <span style="background-image:url(<?php echo $img['sizes']['gal-thb'] ?>)" data-big="<?php echo $img['sizes']['gal-big'] ?>" data-h=<?php echo $img['sizes']['gal-big-height'] ?>></span>
             <?php } } ?>
         </div>
     </div>
@@ -108,7 +109,9 @@
 
         <?php }elseif(get_row_layout() == 'where_to_purchase'){ // !! WHERE TO PURCHASE ?>
 
-            <?php $post = get_sub_field('brand_page'); setup_postdata($post); if(have_rows('stores_available')){ ?>
+            <?php
+            $post = get_sub_field('brand_page'); $post = get_post($post); setup_postdata($post);
+            if(have_rows('stores_available')){ ?>
                 <section id="purchase">
                     <h4><?php the_field('stores_text'); ?></h4>
                     <div class="stores">
