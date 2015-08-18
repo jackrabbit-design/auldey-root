@@ -620,7 +620,7 @@
         .toys { font-size:0; margin-bottom:60px;
             .toy { width:33%; padding:30px; display: inline-block; vertical-align: top;
                 &+.toy { border-left:1px solid #D8D8D8; }
-                img { display:block; margin:0 auto; margin-bottom:50px; max-width:100%; }
+                img { display:block; margin:0 auto; margin-bottom:50px; max-width:100%; height:auto; }
                 h4 { font:700 18px/1 Nexa; color:#1E66A3; }
             }
         }
@@ -863,6 +863,12 @@
 
     input[type=submit], button { display: inline-block; cursor: pointer;
         &:hover {  }
+    }
+
+    .gfield_error { position: relative;
+        input, textarea { border-color:#D42731; }
+        .validation_message { position: absolute; bottom:-15px; left:0; font-size:11px; color:#1E66A3; }
+
     }
 
 

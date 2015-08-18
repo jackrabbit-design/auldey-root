@@ -449,7 +449,7 @@ hr { max-width: 990px; border: none; border-bottom: 1px solid #CFCFCF; margin: 0
 #more-toys .toys { font-size: 0; margin-bottom: 60px; }
 #more-toys .toys .toy { width: 33%; padding: 30px; display: inline-block; vertical-align: top; }
 #more-toys .toys .toy + .toy { border-left: 1px solid #D8D8D8; }
-#more-toys .toys .toy img { display: block; margin: 0 auto; margin-bottom: 50px; max-width: 100%; }
+#more-toys .toys .toy img { display: block; margin: 0 auto; margin-bottom: 50px; max-width: 100%; height: auto; }
 #more-toys .toys .toy h4 { font: 700 18px/1 Nexa; color: #1E66A3; }
 
 #purchase { max-width: 980px; margin: 0 auto; text-align: center; padding: 55px 0; border-bottom: 1px solid #CFCFCF; }
@@ -624,6 +624,10 @@ input[type=text], input[type=password], input[type=url], input[type=email] { pad
 textarea { padding: 16px; font: 300 16px/1.5 ProximaNova; color: #737373; height: 160px; border: 1px solid #CFCFCF; width: 100%; display: block; }
 
 input[type=submit], button { display: inline-block; cursor: pointer; }
+
+.gfield_error { position: relative; }
+.gfield_error input, .gfield_error textarea { border-color: #D42731; }
+.gfield_error .validation_message { position: absolute; bottom: -15px; left: 0; font-size: 11px; color: #1E66A3; }
 
 /* Owl Carousel - Animate Plugin */
 .owl-carousel .animated { -webkit-animation-duration: 1000ms; animation-duration: 1000ms; -webkit-animation-fill-mode: both; animation-fill-mode: both; }

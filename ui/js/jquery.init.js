@@ -12,7 +12,6 @@ function _brandGrid(){
 
 function _banner(){
     var wh = $(window).height();
-    console.log(wh);
     $('#banner').owlCarousel({
         items: 1,
         nav: true,
@@ -92,7 +91,6 @@ function _linkCheck(){
     $(document).on('click', 'a.external', function(e){
         e.preventDefault;
         var url = e.currentTarget.href;
-        console.log(e);
         $('.external-lb a.btn').attr('href',url);
         $.magnificPopup.open({
             mainClass: 'mfp-fade',
@@ -259,6 +257,22 @@ function _spaces(){
     }
 }
 
+function _moreToys(){
+    if($('#more-toys').length){
+        mh = 0;
+        $('#more-toys .toy').each(function(){
+            h = $('img',this).height();
+            if(h > mh){
+                mh = h;
+            }
+        });
+        $('#more-toys .toy').each(function(){
+            m = Math.floor((mh - $('img',this).height()) / 2);
+            $('img',this).css('padding',m+'px 0px');
+        });
+    }
+}
+
 jQuery(function(){
 
     _brandGrid();
@@ -277,6 +291,7 @@ jQuery(function(){
     _toyPage();
     _toySort();
     _spaces();
+    _moreToys();
 
     $('a.btn[href=#toy-grid]').on('click',function(e){
         e.preventDefault;
