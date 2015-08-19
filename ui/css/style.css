@@ -516,9 +516,9 @@ hr { max-width: 990px; border: none; border-bottom: 1px solid #CFCFCF; margin: 0
 
 #spaces { text-align: center; }
 #spaces label { font-size: 19px; color: #737373; }
-#spaces label span { display: inline-block; width: 20px; height: 20px; border: 2px solid #CFCFCF; box-shadow: inset 0 0 0 2px #fff; -webkit-transition: background 0.15s; transition: background 0.15s; margin: 0 5px -3px 20px; }
-#spaces input[type="checkbox"] { display: none; }
-#spaces input[type="checkbox"]:checked + label span { background: #1E66A3; }
+#spaces label span { display: inline-block; width: 20px; height: 20px; border: 2px solid #CFCFCF; box-shadow: inset 0 0 0 2px #fff; -webkit-transition: background 0.15s; transition: background 0.15s; margin: 0 5px -3px 20px; border-radius: 10px; }
+#spaces input[type="radio"] { display: none; }
+#spaces input[type="radio"]:checked + label span { background: #1E66A3; }
 
 #toy-grid { max-width: 990px; margin: 0 auto; overflow: hidden; padding-bottom: 1px; }
 #toy-grid ul { position: relative; left: -1px; font-size: 0; line-height: 0; }
@@ -550,6 +550,7 @@ hr { max-width: 990px; border: none; border-bottom: 1px solid #CFCFCF; margin: 0
 #manual-brands a img { -webkit-filter: grayscale(100%); filter: grayscale(100%); -webkit-filter: gray; filter: gray; filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale"); opacity: 0.5; -webkit-transform: scale(0.8); -ms-transform: scale(0.8); transform: scale(0.8); -webkit-transition: -webkit-transform 0.2s; transition: transform 0.2s; }
 #manual-brands a img:hover { -webkit-filter: none; filter: none; opacity: 1; }
 #manual-brands a.active img { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); -webkit-filter: none; filter: none; opacity: 1; }
+#manual-brands.init a img { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); -webkit-filter: none; filter: none; opacity: 1; }
 
 #manual-types.s ~ #manual-brands { display: none; }
 #manual-types.s ~ #manual-search { display: block; }
@@ -1064,4 +1065,5 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
   #brand-slider #brand-logo img { margin: 0 auto; max-width: 80%; margin: 20px auto !important; display: block; }
   .full { padding: 40px 0 40% !important; }
   #manual-search div { width: 100%; padding: 0 20px 20px; }
-  #manual-search button.submit { width: 110px; } }
+  #manual-search button.submit { width: 110px; }
+  #footer .left p { position: static; clear: left; margin-top: 70px; } }

@@ -138,10 +138,13 @@
         if($brand->term_id == 8){ ?>
 
             <div id="spaces" data-url="<?php the_permalink(); ?>">
-                <input type="checkbox" name="space" id="indoor" value="indoor" checked />
+                <input type="radio" name="space" id="all" value="all" checked />
+                <label for="all"><span></span>All items</label>
+
+                <input type="radio" name="space" id="indoor" value="indoor" />
                 <label for="indoor"><span></span>Indoor</label>
 
-                <input type="checkbox" name="space" id="outdoor" value="outdoor" checked />
+                <input type="radio" name="space" id="outdoor" value="outdoor" />
                 <label for="outdoor"><span></span>Outdoor</label>
             </div>
 
@@ -184,9 +187,8 @@
             $args = array_merge($args, $default);
         }
 
-        if(isset($_GET['space'])){
+        if(isset($_GET['space']) && $_GET['space'] !== 'all'){
             $spaces = $_GET['space'];
-            $spaces = explode(',',$spaces);
             $space = array(
                 'tax_query' => array(array(
                     'taxonomy' => 'space',

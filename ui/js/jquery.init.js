@@ -156,6 +156,7 @@ function _ageCheck(){
 function _brandSort(){
     $('#results li:visible:even:last').addClass('noborder')
     $('#manual-brands a').on('click',function(){
+        $('#manual-brands').removeClass('init');
         if($(this).hasClass('active')){
             $(this).removeClass('active');
             $('#results li').show().removeClass('noborder');

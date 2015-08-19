@@ -17,9 +17,7 @@
 
     <div style="display:none;">
         <div class="external-lb">
-            <h2>Prepare for Takeoff!</h2>
-            <h3>By clicking "continue" you'll be flying off the Auldey web site and landing on a social site. Remember, they have different terms and privacy policies.</h3>
-            <p>KIDS, get your parent's permission before visiting other sites and NEVER share any personal info about yourself – including your full name, address and phone number and let your parent or guardian handle any transaction.</p>
+            <?php the_field('speedbump_body','options'); ?>
             <a href="#" target="_blank" class="btn"><span>Continue</span></a>
             <a href="#" class="right">Back to Auldey</a>
         </div>

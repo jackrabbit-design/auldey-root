@@ -715,9 +715,9 @@
 
     #spaces { text-align:center;
         label { font-size:19px; color:#737373;
-            span { display: inline-block; width:20px; height:20px; border:2px solid #CFCFCF; box-shadow:inset 0 0 0 2px #fff; transition:background 0.15s; margin:0 5px -3px 20px; }
+            span { display: inline-block; width:20px; height:20px; border:2px solid #CFCFCF; box-shadow:inset 0 0 0 2px #fff; transition:background 0.15s; margin:0 5px -3px 20px; border-radius:10px; }
         }
-        input[type="checkbox"] { display:none;
+        input[type="radio"] { display:none;
             &:checked + label {
                 span { background:#1E66A3; }
             }
@@ -765,6 +765,7 @@
             img:hover { -webkit-filter:none; filter:none; opacity:1; }
             &.active img { transform:scale(1); -webkit-filter:none; filter:none; opacity:1; }
         }
+        &.init a img { transform:scale(1); -webkit-filter:none; filter:none; opacity:1; }
     }
 
     #manual-types.s {
@@ -1398,4 +1399,5 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
         div { width:100%; padding:0 20px 20px; }
         button.submit { width:110px; }
     }
+    #footer .left p { position:static; clear:left; margin-top:70px; }
 }

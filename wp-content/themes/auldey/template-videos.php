@@ -48,7 +48,7 @@
     <button class="submit" type="submit">Find it</button>
 </form>
 
-<section id="manual-brands">
+<section id="manual-brands" class="init">
     <a href="#" data-brand="<?php
         $term = get_term_by('id', 4, 'video-brand');
         echo $term->slug
