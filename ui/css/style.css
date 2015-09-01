@@ -531,8 +531,8 @@ hr { max-width: 990px; border: none; border-bottom: 1px solid #CFCFCF; margin: 0
 #pagination a, #pagination span.current { padding: 11px 22px 14px; background: #00A3E1; -webkit-transform: skew(-19deg); -ms-transform: skew(-19deg); transform: skew(-19deg); display: inline-block; box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3); margin: 0; }
 #pagination a span, #pagination span.current span { display: inline-block; -webkit-transform: skew(19deg); -ms-transform: skew(19deg); transform: skew(19deg); font: 18px/23px Nexa; text-transform: uppercase; font-weight: 600; color: #fff; }
 #pagination a:hover, #pagination span.current:hover { background: #D7262C; }
-#pagination span.current { background: #B3B3B3; }
-#pagination span.current:hover { background: #B3B3B3; }
+#pagination span.current { background: #1E66A3; }
+#pagination span.current:hover { background: #1E66A3; }
 
 #manual-types { text-align: center; border-bottom: 2px solid #CFCFCF; max-width: 990px; margin: 0 auto 70px; }
 #manual-types ul { background: #fff; display: inline-block; position: relative; top: 28px; padding: 0 10px; }
