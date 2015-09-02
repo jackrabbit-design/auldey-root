@@ -52,6 +52,9 @@ add_image_size( 'store-logo', 185, 105, false );
 add_image_size( 'vid-grid', 416, 246, true );
 add_image_size( 'manual-grid', 145, 100, false );
 add_image_size( 'side-img', 410, 515, false );
+add_image_size( 'search', 415, 245, false );
+add_image_size( 'search-true', 415, 245, true );
+add_image_size( 'search-sm', 230, 145, false );
 
 /* Declare Nav Menu Areas */
 if ( function_exists( 'register_nav_menus' ) ) {

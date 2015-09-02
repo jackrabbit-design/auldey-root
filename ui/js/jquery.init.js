@@ -138,6 +138,7 @@ function _subNav(){
         var img = $('<img src="'+subImg+'" alt="'+subText+'" />');
         $('a',this).html(img);
     })
+    $('#nav li.search a span').text('').html('<img src="/ui/images/menu-search.png" alt="Search" />');
 }
 
 function _ageCheck(){

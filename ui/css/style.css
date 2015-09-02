@@ -220,7 +220,7 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 #nav > ul > li ul li a:hover { bottom: 10px; }
 #nav > ul > li ul li img { max-width: 100%; vertical-align: bottom; }
 #nav > ul > li:hover ul { height: 380px; }
-#nav > ul > li.search img { width: 18px; height: 17px; }
+#nav > ul > li.search img { width: 17px; height: 16px; }
 #nav > ul > li.search a { padding: 18px 18px 30px 16px; }
 
 #banner { height: 500px; width: 100%; }
@@ -400,6 +400,7 @@ h6 { font: normal 24px/1.2 ProximaNova, sans-serif; color: #f00; }
 .main .search-404 label { width: 100%; display: block; text-align: left; font: 700 15px/1 Nexa; color: #D7262C; text-transform: uppercase; margin-bottom: 9px; }
 .main .search-404 input { float: left; width: 64.90909%; height: 50px; line-height: 50px; border: 1px solid #CFCFCF; font-size: 18px; color: #737373; padding: 0 16px; }
 .main .search-404 button { -webkit-transform: skew(0deg); -ms-transform: skew(0deg); transform: skew(0deg); float: right; width: 32.72727%; padding: 18px 0; }
+.main .search-404.search-page { padding-left: 0; min-height: 140px; }
 
 hr { max-width: 990px; border: none; border-bottom: 1px solid #CFCFCF; margin: 0 auto; }
 
@@ -612,6 +613,20 @@ hr { max-width: 990px; border: none; border-bottom: 1px solid #CFCFCF; margin: 0
 .external-lb p { font: 300 18px/1.44 ProximaNova; color: #737373; padding-right: 60px; padding-bottom: 30px; }
 .external-lb .btn { padding: 10px 30px; float: left; margin-right: 20px; }
 .external-lb .right { font: 800 14px/34px Nexa; color: #00A3E1; text-transform: uppercase; }
+
+.result { padding: 30px; border-top: 1px solid #CFCFCF; }
+.result .image { width: 45%; float: left; position: relative; }
+.result .image img { max-width: 100%; }
+.result .image .play { width: 102px; height: 102px; display: block; background: url(../images/play-arrow.png) 0px top; top: 50%; left: 50%; margin-top: -51px; margin-left: -51px; position: absolute; -webkit-transform: scale(0.65); -ms-transform: scale(0.65); transform: scale(0.65); }
+.result .image:hover .play { background-position: -102px top; }
+.result .image .s-manual { float: right; padding-right: 70px; }
+.result .text { padding: 34px 34px 0 50%; }
+.result .text h3 { font-size: 22px; margin-bottom: 14px; }
+.result .text h3 a { color: #1E66A3; }
+.result .text h3 a:hover { color: #EC1C23; }
+.result .text h4 { margin: 14px 0 9px; font-size: 15px; color: #00A3E1; }
+.result .text p { font-size: 15px; line-height: 20px; }
+.result .text p strong { color: #1E66A3; font-weight: 600; }
 
 /* != PLACEHOLDER ATTRIBUTE STYLES = input or textarea - placeholder="whatever" ===== */
 /* ::-webkit-input-placeholder { color: #aaa; } :-moz-placeholder           { color: #aaa; }
@@ -1067,4 +1082,8 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
   .full { padding: 40px 0 40% !important; }
   #manual-search div { width: 100%; padding: 0 20px 20px; }
   #manual-search button.submit { width: 110px; }
-  #footer .left p { position: static; clear: left; margin-top: 70px; } }
+  #footer .left p { position: static; clear: left; margin-top: 70px; }
+  .result .image { width: 100%; float: none; margin-bottom: 20px; }
+  .result .image a[download] img { max-width: 50%; }
+  .result .image .s-manual { padding: 0; }
+  .result .text { padding: 0px; } }

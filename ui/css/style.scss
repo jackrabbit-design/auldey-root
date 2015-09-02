@@ -298,7 +298,7 @@
                 }
                 &:hover ul { height:380px; }
                 &.search {
-                    img { width:18px; height:17px; }
+                    img { width:17px; height:16px; }
                     a { padding:18px 18px 30px 16px; }
                 }
             }
@@ -552,6 +552,7 @@
             label { width:100%; display:block; text-align:left; font:700 15px/1 Nexa; color:#D7262C; text-transform: uppercase; margin-bottom:9px; }
             input {  float:left; width:percentage(357/550); height:50px; line-height:50px; border:1px solid #CFCFCF; font-size:18px; color:#737373; padding:0 16px; }
             button { transform:skew(0deg); float:right; width:percentage(180/550); padding:18px 0; }
+            &.search-page { padding-left:0; min-height:140px; }
         }
     }
 
@@ -844,6 +845,25 @@
         .right { font:800 14px/34px Nexa; color:#00A3E1; text-transform:uppercase; }
     }
 
+    .result { padding:30px; border-top:1px solid #CFCFCF;
+        .image { width:45%; float:left; position: relative;
+            img { max-width:100%; }
+            .play { width:102px; height:102px; display:block; background:url(../images/play-arrow.png) 0px top; top:50%; left:50%; margin-top:-51px; margin-left:-51px; position: absolute; transform:scale(0.65);}
+            &:hover .play { background-position:-102px top; }
+            .s-manual { float:right; padding-right:70px; }
+        }
+        .text { padding:34px 34px 0 50%;
+            h3 { font-size:22px; margin-bottom:14px;
+                a { color:#1E66A3;
+                    &:hover { color:#EC1C23; }
+                }
+            }
+            h4 { margin:14px 0 9px; font-size:15px; color:#00A3E1; }
+            p { font-size:15px; line-height:20px;
+                strong { color:#1E66A3; font-weight:600; }
+            }
+        }
+    }
 
 /* != PLACEHOLDER ATTRIBUTE STYLES = input or textarea - placeholder="whatever" ===== */
 /*
@@ -1401,4 +1421,12 @@ img.mfp-img { width: auto; max-width: 100%; height: auto; display: block; line-h
         button.submit { width:110px; }
     }
     #footer .left p { position:static; clear:left; margin-top:70px; }
+
+    .result {
+        .image { width:100%; float:none; margin-bottom:20px;
+            a[download] img { max-width:50%; }
+            .s-manual { padding:0; }
+        }
+        .text { padding:0px; }
+    }
 }

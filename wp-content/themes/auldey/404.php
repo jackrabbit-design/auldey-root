@@ -8,9 +8,9 @@
     <section class="main clearfix fourohfour">
         <img src="<?php bloginfo('url') ?>/ui/images/404.png" alt="" class="img-404" />
         <form action="<?php bloginfo('url'); ?>" method="get" class="search-404">
-            <!-- <label for="s">Search</label>
+            <label for="s">Search</label>
             <input type="search" id="s" name="s" placeholder="Search Auldey" />
-            <button type="submit">Find It</button> -->
+            <button type="submit">Find It</button>
         </form>
     </section>
 
