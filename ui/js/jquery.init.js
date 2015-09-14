@@ -316,7 +316,7 @@ jQuery(function(){
     _resultsHeight();
     _toyGrid();
 
-    $(window).on('resize',function(){
+    $(window).on('load resize',function(){
         _moreToys();
         _resultsHeight();
         _toyGrid();
