@@ -186,11 +186,9 @@ function _toyPage(){
         var link = $(this).attr('href');
         var $content = '#everything';
         $($content).addClass('loading');
-        $.post(link+'', function(data){
+        $.post(link).done(function(data){
             var $new_content = $('<div>').append(data).find($content).html();
-            $($content).html($new_content); // Append the new content
-        },'html').done(function(){
-            $($content).removeClass('loading');
+            $($content).html($new_content).removeClass('loading');
             _toyGrid();
         });
     });
@@ -221,11 +219,9 @@ function _toySort(){
         var $content = '#everything';
         $($content).addClass('loading');
         $('#spaces').data('url', $target);
-        $.post($target+'', function(data){
+        $.post($target).done(function(data){
             var $new_content = $('<div>').append(data).find($content).html();
-            $($content).html($new_content); // Append the new content
-        },'html').done(function(){
-            $($content).removeClass('loading');
+            $($content).html($new_content).removeClass('loading');
             _toyGrid();
         });
     });
@@ -256,11 +252,9 @@ function _spaces(){
             }
             var $content = '#everything';
             $($content).addClass('loading');
-            $.post($link+'', function(data){
+            $.post($link).done(function(data){
                 var $new_content = $('<div>').append(data).find($content).html();
-                $($content).html($new_content); // Append the new content
-            },'html').done(function(){
-                $($content).removeClass('loading');
+                $($content).html($new_content).removeClass('loading');
                 _toyGrid();
             });
         });
