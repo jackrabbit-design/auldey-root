@@ -274,7 +274,6 @@ function _toyGrid(){
         if(h > m){ m = h };
     }).height(m).each(function(){
         var p = m - $('a',this).height();
-        console.log(p);
         $('a',this).css('padding-top',p+'px');
     });
 }
