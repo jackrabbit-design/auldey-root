@@ -73,7 +73,7 @@
                                 if(has_post_thumbnail()){
                                     $img = wp_get_attachment_image_src(get_post_thumbnail_id(), 'search-true'); $thb = $thb[0];
                                 }else{
-                                    $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$vidID.php"));
+                                    $hash = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$vidID.php"));
                                     $img = $hash[0]['thumbnail_large'];
                                 }
                                 $cats = get_the_terms($post->ID, 'video-brand');
@@ -106,7 +106,7 @@
                         <div class="result clearfix">
                             <div class="image">
                                 <?php if($post->post_type == 'video'){ ?>
-                                    <a href="http://vimeo.com/<?php echo $vidID ?>" class="lb video">
+                                    <a href="https://vimeo.com/<?php echo $vidID ?>" class="lb video">
                                         <img src="<?php echo $img ?>" alt="" /><span class="play"></span>
                                     </a>
                                 <?php }elseif($post->post_type == 'manual'){ ?>

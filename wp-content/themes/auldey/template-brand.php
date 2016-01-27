@@ -78,7 +78,7 @@
                         if(has_post_thumbnail($v)){
                             $thb = wp_get_attachment_image_src(get_post_thumbnail_id($v), 'home-video'); $thb = $thb[0];
                         }else{
-                            $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$vidID.php"));
+                            $hash = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$vidID.php"));
                             $thb = $hash[0]['thumbnail_large'];
                         }
                         ?>

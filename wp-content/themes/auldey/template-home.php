@@ -52,11 +52,11 @@
         if(has_post_thumbnail($v)){
             $thb = wp_get_attachment_image_src(get_post_thumbnail_id($v), 'home-video'); $thb = $thb[0];
         }else{
-            $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$vidID.php"));
+            $hash = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$vidID.php"));
             $thb = $hash[0]['thumbnail_large'];
         }
         ?>
-        <a href="http://vimeo.com/<?php echo $vidID ?>" class="lb video <?php echo ($i == 0 ? 'large' : 'small'); ?>">
+        <a href="https://vimeo.com/<?php echo $vidID ?>" class="lb video <?php echo ($i == 0 ? 'large' : 'small'); ?>">
             <img src="<?php echo $thb; ?>" alt="" />
             <span class="light"></span>
             <span class="dark"></span>

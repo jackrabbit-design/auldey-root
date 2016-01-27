@@ -129,12 +129,12 @@ if(have_posts()){
                 if(has_post_thumbnail()){
                     $thb = wp_get_attachment_image_src(get_post_thumbnail_id(), 'vid-grid'); $thb = $thb[0];
                 }else{
-                    $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$vidID.php"));
+                    $hash = unserialize(file_get_contents("https://vimeo.com/api/v2/video/$vidID.php"));
                     $thb = $hash[0]['thumbnail_large'];
                 }
                 ?>
                 <li data-brand="<?php echo $catSlug ?>">
-                    <a href="http://vimeo.com/<?php echo $vidID ?>" class="lb video">
+                    <a href="https://vimeo.com/<?php echo $vidID ?>" class="lb video">
                         <img src="<?php echo $thb ?>" alt="" /><span class="play"></span>
                     </a>
                     <h3><?php the_title() ?></h3>
