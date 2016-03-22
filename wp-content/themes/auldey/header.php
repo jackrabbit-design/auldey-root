@@ -37,7 +37,8 @@
 
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<?php $alert = (!isset($_COOKIE['test4']) ? 'alert' : ''); ?>
+<body <?php body_class($alert); ?>>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -60,3 +61,37 @@
             </nav>
         </div>
     </header>
+    <?php if(is_user_logged_in()){ ?>
+        <div id="alert">
+            <div class="wrap clearfix">
+                <div class="left">
+                    <img src="/ui/images/ico-hazard.png" alt="" />
+                    <strong>Safety Recall</strong>
+                    <br/>
+                    Aero Spin and Aero Cruz Voluntary Recall
+                </div>
+                <div class="right">
+                    <a href="#" class="close">Close</a>
+                    <a href="#" class="btn white"><span>Learn More</span></a>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            jQuery(function($){
+                $(window).load(function(){
+                    if(!Cookies.get('test4')){
+                        $('#alert').addClass('active');
+                    }
+                });
+                $("#alert .close").on('click',function(){
+                    $('#alert').fadeOut(200,function(){
+                        $('body').removeClass('alert');
+                    });
+                    Cookies.set('test4',true,{
+                        expires: 7
+                    });
+                    return false;
+                });
+            });
+        </script>
+    <?php } ?>
