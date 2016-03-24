@@ -37,7 +37,15 @@
 
     <?php wp_head(); ?>
 </head>
-<?php $alert = (!isset($_COOKIE['test4']) ? 'alert' : ''); ?>
+<?php
+$o = 'options';
+if(get_field('show_alert',$o)){
+    $alertText = get_field('alert_text',$o);
+    $aCookie = md5($alertText);
+    $alert = 'alert';
+}else{
+    $alert = '';
+} ?>
 <body <?php body_class($alert); ?>>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -61,25 +69,27 @@
             </nav>
         </div>
     </header>
-    <?php if(is_user_logged_in()){ ?>
+    <?php if(is_user_logged_in() && get_field('show_alert',$o) ){ ?>
         <div id="alert">
             <div class="wrap clearfix">
                 <div class="left">
                     <img src="/ui/images/ico-hazard.png" alt="" />
-                    <strong>Safety Recall</strong>
+                    <strong><?php the_field('alert_heading',$o); ?></strong>
                     <br/>
-                    Aero Spin and Aero Cruz Voluntary Recall
+                    <?php
+                    echo $alertText;
+                    ?>
                 </div>
                 <div class="right">
                     <a href="#" class="close">Close</a>
-                    <a href="#" class="btn white"><span>Learn More</span></a>
+                    <a href="<?php the_field('alert_link',$o); ?>" class="btn white"><span><?php the_field('alert_link_label',$o); ?></span></a>
                 </div>
             </div>
         </div>
         <script type="text/javascript">
             jQuery(function($){
                 $(window).load(function(){
-                    if(!Cookies.get('test4')){
+                    if(!Cookies.get('<?php echo $aCookie ?>')){
                         $('#alert').addClass('active');
                     }
                 });
@@ -87,11 +97,17 @@
                     $('#alert').fadeOut(200,function(){
                         $('body').removeClass('alert');
                     });
-                    Cookies.set('test4',true,{
+                    Cookies.set('<?php echo $aCookie ?>',true,{
                         expires: 7
                     });
                     return false;
                 });
+                $('#alert .btn').on('click',function(){
+                    Cookies.set('<?php echo $aCookie ?>',true,{
+                        expires: 7
+                    });
+                    return true;
+                })
             });
         </script>
     <?php } ?>
