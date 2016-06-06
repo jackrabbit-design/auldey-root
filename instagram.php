@@ -12,32 +12,13 @@ class instagramPhp{
     /*
      * Constructor
      */
-    function __construct($username='',$access_token='') {
-        if(empty($username) || empty($access_token)){
-            $this->error('empty username or access token');
+    function __construct($username='',$access_token='',$userid='') {
+        if(empty($username) || empty($access_token) || empty($userid)){
+            $this->error('empty username, access token, or user id');
         } else {
             $this->username=$username;
             $this->access_token = $access_token;
-        }
-    }
-
-    /*
-     * The api works mostly with user ids, but it's easier for users to use their username.
-     * This function gets the userid corresponding to the username
-     */
-    public function getUserIDFromUserName(){
-        if(strlen($this->username)>0 && strlen($this->access_token)>0){
-            //Search for the username
-            $useridquery = $this->queryInstagram('https://api.instagram.com/v1/users/search?q='.$this->username.'&access_token='.$this->access_token);
-            if(!empty($useridquery) && $useridquery->meta->code=='200' && $useridquery->data[0]->id>0){
-                //Found
-                $this->userid=$useridquery->data[0]->id;
-            } else {
-                //Not found
-                $this->error('getUserIDFromUserName');
-            }
-        } else {
-            $this->error('empty username or access token');
+            $this->userid = $userid;
         }
     }
 
@@ -46,21 +27,13 @@ class instagramPhp{
      * you can use the $args array to pass the attributes that are used by the GET/users/user-id/media/recent method
      */
     public function getUserMedia($args=array()){
-        if($this->userid<=0){
-            //If no user id, get user id
-            $this->getUserIDFromUserName();
-        }
-        if($this->userid>0 && strlen($this->access_token)>0){
-            $qs='';
-            if(!empty($args)){ $qs = '&'.http_build_query($args); } //Adds query string if any args are specified
-            $shots = $this->queryInstagram('https://api.instagram.com/v1/users/'.(int)$this->userid.'/media/recent?access_token='.$this->access_token.$qs); //Get shots
-            if($shots->meta->code=='200'){
-                return $shots;
-            } else {
-                $this->error('getUserMedia');
-            }
+        $qs='';
+        if(!empty($args)){ $qs = '&'.http_build_query($args); } //Adds query string if any args are specified
+        $shots = $this->queryInstagram('https://api.instagram.com/v1/users/'.$this->userid.'/media/recent?access_token='.$this->access_token.$qs); //Get shots
+        if($shots->meta->code=='200'){
+            return $shots;
         } else {
-            $this->error('empty username or access token');
+            $this->error('getUserMedia');
         }
     }
 

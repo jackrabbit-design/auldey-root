@@ -128,6 +128,7 @@
 
   $username = get_field('instagram_username','options');
   $access_token = get_field('instagram_access_token','options');
+  $userid = 1986221760;
   $count = '5'; //How many shots do you want?
 
   //2 - Include the php class
@@ -135,7 +136,7 @@
 
   //3 - Instanciate
   if(!empty($username) && $username!='yourusername' && !empty($access_token) && $access_token!='youraccesstoken'){
-      $isg = new instagramPhp($username,$access_token); //instanciates the class with the parameters
+      $isg = new instagramPhp($username,$access_token,$userid); //instanciates the class with the parameters
       $shots = $isg->getUserMedia(array('count'=>$count)); //Get the shots from instagram
   } else {
       echo'Please update your settings to provide a valid username and access token';
