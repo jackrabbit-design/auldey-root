@@ -69,8 +69,8 @@ if(get_field('show_alert',$o)){
             </nav>
         </div>
     </header>
-    <?php if(is_user_logged_in() && get_field('show_alert',$o) ){ ?>
-        <div id="alert">
+    <?php if(get_field('show_alert',$o) ){ ?>
+        <div id="alert"><!--TEST-->
             <div class="wrap clearfix">
                 <div class="left">
                     <img src="/ui/images/ico-hazard.png" alt="" />
