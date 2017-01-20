@@ -522,9 +522,9 @@ hr { max-width: 990px; border: none; border-bottom: 1px solid #CFCFCF; margin: 0
 #spaces input[type="radio"] { display: none; }
 #spaces input[type="radio"]:checked + label span { background: #1E66A3; }
 
-#toy-grid { max-width: 990px; margin: 0 auto; overflow: hidden; padding-bottom: 1px; }
-#toy-grid ul { position: relative; left: -1px; font-size: 0; line-height: 0; }
-#toy-grid ul li { text-align: center; width: 33.333%; display: inline-block; padding: 2.72727%; border-left: 1px solid #CFCFCF; border-bottom: 1px solid #CFCFCF; vertical-align: top; }
+#toy-grid { max-width: 990px; margin: 20px auto 0; overflow: hidden; padding-bottom: 1px; }
+#toy-grid ul { position: relative; left: -1px; font-size: 0; line-height: 0; display:flex; flex-wrap:wrap; }
+#toy-grid ul li { text-align: center; width: 33.333%; display: inline-block; padding: 20px; border-left: 1px solid #CFCFCF; border-bottom: 1px solid #CFCFCF; vertical-align: top; }
 #toy-grid ul li img { max-width: 100%; margin-bottom: 30px; height: auto; display: block; }
 #toy-grid ul li p { font: 700 18px/18px Nexa; color: #1E66A3; }
 #toy-grid ul li a { display: block; }
@@ -561,7 +561,7 @@ hr { max-width: 990px; border: none; border-bottom: 1px solid #CFCFCF; margin: 0
 #manual-results { text-align: center; padding: 42px 0; max-width: 990px; text-align: center; font-size: 0; line-height: 0; overflow: hidden; margin: 0 auto; }
 #manual-results h4 { margin: 0 0 12px; }
 #manual-results h3 { margin: 0; }
-#manual-results #results { border-top: 1px solid #D8D8D8; border-bottom: 1px solid #D8D8D8; margin-top: 40px; }
+#manual-results #results { border-top: 1px solid #D8D8D8; border-bottom: 1px solid #D8D8D8; margin-top: 40px; display:flex; flex-wrap:wrap; }
 #manual-results #results li { display: inline-block; width: 50%; text-align: left; border-top: 1px solid #D8D8D8; border-left: 1px solid transparent; position: relative; top: -1px; left: -1px; vertical-align: top; }
 #manual-results #results li a { display: block; padding: 30px; position: relative; overflow: hidden; -webkit-transition: all 0.15s; transition: all 0.15s; }
 #manual-results #results li a:before { content: ''; display: block; width: 106px; height: 56px; position: absolute; bottom: 33px; right: -40px; -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); background: #00A3E1; -webkit-transform-origin: bottom right; -ms-transform-origin: bottom right; transform-origin: bottom right; opacity: 0; -webkit-transition: all 0.15s; transition: all 0.15s; }

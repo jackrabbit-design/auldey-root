@@ -189,7 +189,7 @@ function _toyPage(){
         $.post(link).done(function(data){
             var $new_content = $('<div>').append(data).find($content).html();
             $($content).html($new_content).removeClass('loading');
-            setTimeout(function(){ _toyGrid(); }, 100);
+            //setTimeout(function(){ _toyGrid(); }, 100);
         });
     });
 }
@@ -222,7 +222,7 @@ function _toySort(){
         $.post($target).done(function(data){
             var $new_content = $('<div>').append(data).find($content).html();
             $($content).html($new_content).removeClass('loading');
-            _toyGrid();
+            //_toyGrid();
         });
     });
 }
@@ -255,7 +255,7 @@ function _spaces(){
             $.post($link).done(function(data){
                 var $new_content = $('<div>').append(data).find($content).html();
                 $($content).html($new_content).removeClass('loading');
-                _toyGrid();
+                //_toyGrid();
             });
         });
     }
@@ -310,9 +310,9 @@ jQuery(function(){
     //_toyGrid();
 
     $(window).on('load resize',function(){
-        _moreToys();
-        _resultsHeight();
-        _toyGrid();
+        //_moreToys();
+        //_resultsHeight();
+        //_toyGrid();
     })
 
     $('a.btn[href=#toy-grid]').on('click',function(e){
